@@ -4,9 +4,9 @@ Contributors: Artiosmedia, steveneray, repon.wp
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=E7LS2JGFPLTH2
 Tags: hide price, hide quantity, hide option, hide add to cart, hide category
 Requires at least: 4.6
-Tested up to: 6.6.1
-Version: 1.1.5
-Stable tag: 1.1.5
+Tested up to: 6.6.2
+Version: 1.1.6
+Stable tag: 1.1.6
 Requires PHP: 7.4.33
 License: GPLv3 or later license and included
 URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -37,13 +37,13 @@ The plugin supports languages including English, Spanish, Portuguese, French, an
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Follow plugin setting panel in WordPress settings menu.
 
-== Technical Details for Release 1.1.5 ==
+== Technical Details for Release 1.1.6 ==
 
 Load time: 0.343 s; Memory usage: 3.54 MiB
-PHP up to tested version: 8.3.11
-MySQL up to tested version: 8.0.39
-MariaDB up to tested version: 11.5.2
-cURL up to tested version: 8.9.1, OpenSSL/3.3.1
+PHP up to tested version: 8.3.13
+MySQL up to tested version: 8.0.40
+MariaDB up to tested version: 11.7.0
+cURL up to tested version: 8.10.1, OpenSSL/3.4.0
 PHP 7.4, 8.0, 8.1, 8.2, and 8.3 compliant.
 
 == Using in Multisite Installation ==
@@ -79,6 +79,12 @@ Please click the following link to check the current stability of this plugin:
 None to report as of the release version
 
 == Changelog ==
+
+1.1.6 10/31/24
+- Fix overriding prices for selected category
+- Fix language assignments in message panel
+- Assure compliance with WordPress 6.6.2
+- Assure compliance with WooCommerce 9.3.3
 
 1.1.5 09/01/24
 - Minor edits to language files

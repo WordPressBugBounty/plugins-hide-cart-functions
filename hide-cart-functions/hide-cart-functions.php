@@ -7,7 +7,7 @@
  * Plugin Name:          Hide Cart Functions
  * Plugin URI:           http://wordpress.org/plugins/hide-cart-functions
  * Description:          Hide product's price, add to cart button, quantity selector, and product options on any product and order. Add message below or above description.
- * Version:              1.1.5
+ * Version:              1.1.6
  * Author:               Artios Media
  * Author URI:           http://www.artiosmedia.com
  * Assisting Developer:  Repon Hossain
@@ -16,10 +16,10 @@
  * License URI:          http://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:          hide-cart-functions
  * Domain Path:          /languages
- * Tested up to:         6.6.1
+ * Tested up to:         6.6.2
  * WC requires at least: 6.5.0
- * WC tested up to:      9.2.3
- * PHP tested up to:     8.3.11
+ * WC tested up to:      9.3.3
+ * PHP tested up to:     8.3.13
  */
 
 namespace Artiosmedia\WC_Purchase_Customization;
@@ -104,7 +104,7 @@ if (!class_exists('HWCF_GLOBAl')) {
             if (!empty($settings_data) && is_array($settings_data)) {
 
                 foreach ($settings_data as $option) {
-                    $option['loggedinUsers'] = ($option['loggedinUsers'] != '' ? $option['loggedinUsers'] : '');					
+                    $option['loggedinUsers'] = ($option['loggedinUsers'] != '' ? $option['loggedinUsers'] : '');
                     $UpdateSettingData[$option['ID']] = $option;
                 }
                 //update_option('hwcf_settings_data', $UpdateSettingData);
@@ -374,6 +374,10 @@ if (!class_exists('HWCF_GLOBAl')) {
             $settings_data    = hwcf_get_hwcf_data();
             global $id;
 
+            $cart_function_matched = false;
+
+            $has_product_or_cat = false;
+
             if (!empty($settings_data) && is_array($settings_data)) {
                 foreach ($settings_data as $option) {
 
@@ -393,22 +397,32 @@ if (!class_exists('HWCF_GLOBAl')) {
                         continue;
                     }
 
+                    if (isset($option['hwcf_categories']) && is_array($option['hwcf_categories'])) {
+                        $has_product_or_cat = true;
+
+                        $product_cats_ids = wc_get_product_term_ids($id, 'product_cat');
+                        $matched_cats = array_intersect($product_cats_ids, $option['hwcf_categories']);
+                        if (count($matched_cats) > 0) {
+                            $cart_function_matched = true;
+                        }
+                    }
+
                     if ($product_ids != null) {
+                        $has_product_or_cat = true;
 
                         $product_ids = explode(",", $product_ids);
-                        $product_ids = array_map('trim', $product_ids);
-
-                        foreach ($product_ids as $product_id) {
-
-                            if ($product_id == $id) {
-                                $price = str_replace('[price]', $price, $overridePriceTag);
-                            }
+                        $product_ids = array_filter(array_map('absint', $product_ids));
+                        if (in_array($id, $product_ids)) {
+                            $cart_function_matched = true;
                         }
-                    } else {
-                        $price = str_replace('[price]', $price, $overridePriceTag);
                     }
                 }
             }
+
+            if ($cart_function_matched || $has_product_or_cat === false) {
+                $price = str_replace('[price]', $price, $overridePriceTag);
+            }
+
             return $price;
         }
 
@@ -436,13 +450,12 @@ if (!class_exists('HWCF_GLOBAl')) {
 
 
 
-add_action( 'initd', function(){
-	$languages = hwcf_get_wpml_language_keys();
+add_action('initd', function () {
+    $languages = hwcf_get_wpml_language_keys();
 
 
 
 
-	var_dump($languages);
-	exit;
-
+    var_dump($languages);
+    exit;
 });
