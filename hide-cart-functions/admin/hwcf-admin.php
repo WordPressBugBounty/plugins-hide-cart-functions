@@ -468,7 +468,11 @@ if (!class_exists('hwcf_admin')) {
 																	<label for="hwcf_overridePriceTag"><?php echo esc_html__('Override Price Tag', 'hide-cart-functions'); ?></label>
 																</th>
 																<td>
-																	<input type="text" id="hwcf_overridePriceTag" name="hwcf[overridePriceTag]" value="<?php echo (isset($current) && isset($current['overridePriceTag']) && $current['overridePriceTag'] != "") ? esc_html($current['overridePriceTag']) : '[price]'; ?>" <?php echo (isset($current) && isset($current['hwcf_hide_price']) && (int)$current['hwcf_hide_price'] > 0 ? 'disabled' : ''); ?> />
+																	<?php 
+																	$overridePriceTag_key = hwcf_get_key_for_language('overridePriceTag');
+																	$value = isset($current[$overridePriceTag_key]) ? $current[$overridePriceTag_key] : '[price]';
+																	?>
+																	<input type="text" id="hwcf_overridePriceTag" name="hwcf[<?php echo esc_attr($overridePriceTag_key) ?>]" value="<?php echo esc_attr($value); ?>" <?php echo (isset($current) && isset($current['hwcf_hide_price']) && (int)$current['hwcf_hide_price'] > 0 ? 'disabled' : ''); ?> />
 																	<label for="hwcf_overridePriceTag">
 																		<p>
 																			<?php

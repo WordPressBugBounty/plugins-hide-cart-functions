@@ -5,8 +5,8 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: hide price, hide quantity, hide option, hide add to cart, hide category
 Requires at least: 4.6
 Tested up to: 6.6.2
-Version: 1.1.6
-Stable tag: 1.1.6
+Version: 1.1.7
+Stable tag: 1.1.7
 Requires PHP: 7.4.33
 License: GPLv3 or later license and included
 URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -37,7 +37,7 @@ The plugin supports languages including English, Spanish, Portuguese, French, an
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Follow plugin setting panel in WordPress settings menu.
 
-== Technical Details for Release 1.1.6 ==
+== Technical Details for Release 1.1.7 ==
 
 Load time: 0.343 s; Memory usage: 3.54 MiB
 PHP up to tested version: 8.3.13
@@ -79,6 +79,9 @@ Please click the following link to check the current stability of this plugin:
 None to report as of the release version
 
 == Changelog ==
+
+1.1.7 11/05/24
+- Fix compatibility with Polylang plugin 3.6.4
 
 1.1.6 10/31/24
 - Fix overriding prices for selected category

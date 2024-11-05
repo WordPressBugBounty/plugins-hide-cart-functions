@@ -189,6 +189,11 @@ function hwcf_update_hwcf($data = []) {
 		$data['hwcf'][$lang_key] = $data['hwcf'][$lang_key];
 	}
 
+	$overridePriceTag_lang_key = hwcf_get_key_for_language('overridePriceTag');
+	if (isset($data['hwcf'][$overridePriceTag_lang_key])) {
+		$data['hwcf'][$overridePriceTag_lang_key] = $data['hwcf'][$overridePriceTag_lang_key];
+	}
+
 	//sanitize input
 	foreach ($data as $key => $value) {
 		if ($key === 'hwcf_custom_message') {
@@ -206,16 +211,7 @@ function hwcf_update_hwcf($data = []) {
 		$settings_id                 = $data['edited_hwcf'];
 
 		$old_data = $settings_data[$settings_id];
-		$languages_keys = hwcf_get_wpml_language_keys();
-
 		$data['hwcf'] = array_merge($old_data, $data['hwcf']);
-
-		foreach ($languages_keys as $lang_key) {
-			$lang_msg_key = 'hwcf_custom_message_' . $lang_key;
-			if (isset($old_data[$lang_msg_key])) {
-				//$data['hwcf'][$lang_msg_key] = $old_data[$lang_msg_key];
-			}
-		}
 
 		$settings_data[$settings_id] = $data['hwcf'];
 		$status                      = update_option('hwcf_settings_data', $settings_data);
@@ -370,22 +366,24 @@ if (!function_exists('HWCF_Plugin_Update')) {
 
 add_action('upgrader_process_complete', 'HWCF_Plugin_Update', 10, 2);
 
-function hwcf_get_wpml_language_keys() {
-	$languages = apply_filters('wpml_active_languages', []);
-	$current = apply_filters('wpml_current_language', NULL);
-	unset($languages[$current]);
-	return array_keys($languages);
-}
-
-function hwcf_is_wpml_same_lang() {
-	return apply_filters('wpml_default_language', NULL) === apply_filters('wpml_current_language', NULL);
-}
-
 function hwcf_get_key_for_language($key) {
-	if (!defined('ICL_SITEPRESS_VERSION')) {
-		return $key;
+	$key = sanitize_key($key);
+
+	$default_language_slug = $current_language_slug = '';
+
+	if (defined('ICL_SITEPRESS_VERSION')) {
+		$current_language_slug = apply_filters('wpml_current_language', NULL);
+		$default_language_slug = apply_filters('wpml_default_language', null);
 	}
 
-	$key = sanitize_key($key);
-	return $key . '_' . apply_filters('wpml_current_language', NULL);
+	if (function_exists('pll_current_language')) {
+		$default_language_slug = pll_default_language();
+		$current_language_slug = pll_current_language();
+	}
+
+	if ($current_language_slug !== $default_language_slug) {
+		return $key . '_' . $current_language_slug;
+	}
+
+	return $key;
 }
