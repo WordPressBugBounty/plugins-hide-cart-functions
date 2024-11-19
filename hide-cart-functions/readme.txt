@@ -5,8 +5,8 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: hide price, hide quantity, hide option, hide add to cart, hide category
 Requires at least: 4.6
 Tested up to: 6.7
-Version: 1.1.8
-Stable tag: 1.1.8
+Version: 1.1.9
+Stable tag: 1.1.9
 Requires PHP: 7.4.33
 License: GPLv3 or later license and included
 URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -37,7 +37,7 @@ The plugin supports languages including English, Spanish, Portuguese, French, an
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Follow plugin setting panel in WordPress settings menu.
 
-== Technical Details for Release 1.1.8 ==
+== Technical Details for Release 1.1.9 ==
 
 Load time: 0.343 s; Memory usage: 3.54 MiB
 PHP up to tested version: 8.3.13
@@ -80,7 +80,10 @@ None to report as of the release version
 
 == Changelog ==
 
-1.1.8 11/19/24
+1.1.9 11/19/24
+- Fix further 1.1.7 issues and adjustments
+
+1.1.8 11/12/24
 - Fix conflict with TI WooCommerce Wishlist
 - Fix hide price for those who are not registered
 - Assure compliance with WordPress 6.7.0

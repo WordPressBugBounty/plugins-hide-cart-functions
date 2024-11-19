@@ -7,7 +7,7 @@
  * Plugin Name:          Hide Cart Functions
  * Plugin URI:           http://wordpress.org/plugins/hide-cart-functions
  * Description:          Hide product's price, add to cart button, quantity selector, and product options on any product and order. Add message below or above description.
- * Version:              1.1.8
+ * Version:              1.1.9
  * Author:               Artios Media
  * Author URI:           http://www.artiosmedia.com
  * Assisting Developer:  Repon Hossain
@@ -29,7 +29,7 @@ if (!defined('WPINC')) {
     die;
 }
 
-define('HWCF_GLOBAl_VERSION', '1.1.8');
+define('HWCF_GLOBAl_VERSION', '1.1.9');
 define('HWCF_GLOBAl_NAME', 'hwcf-global');
 define('HWCF_GLOBAl_ABSPATH', __DIR__);
 define('HWCF_GLOBAl_BASE_NAME', plugin_basename(__FILE__));
@@ -374,28 +374,32 @@ if (!class_exists('HWCF_GLOBAl')) {
             $settings_data    = hwcf_get_hwcf_data();
             global $id;
 
+            if (empty($settings_data)) {
+                return $price;
+            }
+
             $cart_function_matched = true;
 
             if (!empty($settings_data) && is_array($settings_data)) {
                 foreach ($settings_data as $option) {
-
-                    $loggedin_users = isset($option['loggedinUsers']) ? explode(",", $option['loggedinUsers']) : array();
-
                     $overridePriceTag_key = hwcf_get_key_for_language('overridePriceTag');
-					$overridePriceTag = !empty($option[$overridePriceTag_key]) ? $option[$overridePriceTag_key] : $price;
+                    $overridePriceTag = !empty($option[$overridePriceTag_key]) ? $option[$overridePriceTag_key] : $price;
 
                     $product_ids = isset($option['hwcf_products']) ? $option['hwcf_products'] : null;
 
                     if (isset($option['hwcf_disable']) && (int)$option['hwcf_disable'] > 0) {
-                        //skip setup if it's disabled
+                        $cart_function_matched = false;
                         continue;
                     }
 
-                    if (!is_user_logged_in() && in_array(1, $loggedin_users)) {
-                    } elseif (is_user_logged_in() && in_array(2, $loggedin_users)) {
-                    } elseif (isset($loggedin_users[0]) && $loggedin_users[0] == '') {
-                    } else {
-                        continue;
+                    $loggedin_users = isset($option['loggedinUsers']) ? $option['loggedinUsers'] : '';
+
+                    if ($loggedin_users == 1 && is_user_logged_in()) {
+                        $cart_function_matched = false;
+                    }
+
+                    if ($loggedin_users == 2 && !is_user_logged_in()) {
+                        $cart_function_matched = false;
                     }
 
                     if (isset($option['hwcf_categories']) && is_array($option['hwcf_categories'])) {
@@ -448,8 +452,8 @@ if (!class_exists('HWCF_GLOBAl')) {
 
 
 add_action('initd', function () {
-    
-    
+
+
 
 
 
