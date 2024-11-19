@@ -7,7 +7,7 @@
  * Plugin Name:          Hide Cart Functions
  * Plugin URI:           http://wordpress.org/plugins/hide-cart-functions
  * Description:          Hide product's price, add to cart button, quantity selector, and product options on any product and order. Add message below or above description.
- * Version:              1.1.7
+ * Version:              1.1.8
  * Author:               Artios Media
  * Author URI:           http://www.artiosmedia.com
  * Assisting Developer:  Repon Hossain
@@ -16,9 +16,9 @@
  * License URI:          http://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:          hide-cart-functions
  * Domain Path:          /languages
- * Tested up to:         6.6.2
+ * Tested up to:         6.7.0
  * WC requires at least: 6.5.0
- * WC tested up to:      9.3.3
+ * WC tested up to:      9.4.1
  * PHP tested up to:     8.3.13
  */
 
@@ -29,7 +29,7 @@ if (!defined('WPINC')) {
     die;
 }
 
-define('HWCF_GLOBAl_VERSION', '1.1.7');
+define('HWCF_GLOBAl_VERSION', '1.1.8');
 define('HWCF_GLOBAl_NAME', 'hwcf-global');
 define('HWCF_GLOBAl_ABSPATH', __DIR__);
 define('HWCF_GLOBAl_BASE_NAME', plugin_basename(__FILE__));
@@ -374,9 +374,7 @@ if (!class_exists('HWCF_GLOBAl')) {
             $settings_data    = hwcf_get_hwcf_data();
             global $id;
 
-            $cart_function_matched = false;
-
-            $has_product_or_cat = false;
+            $cart_function_matched = true;
 
             if (!empty($settings_data) && is_array($settings_data)) {
                 foreach ($settings_data as $option) {
@@ -401,28 +399,24 @@ if (!class_exists('HWCF_GLOBAl')) {
                     }
 
                     if (isset($option['hwcf_categories']) && is_array($option['hwcf_categories'])) {
-                        $has_product_or_cat = true;
-
                         $product_cats_ids = wc_get_product_term_ids($id, 'product_cat');
                         $matched_cats = array_intersect($product_cats_ids, $option['hwcf_categories']);
-                        if (count($matched_cats) > 0) {
-                            $cart_function_matched = true;
+                        if (count($matched_cats) == 0) {
+                            $cart_function_matched = false;
                         }
                     }
 
                     if ($product_ids != null) {
-                        $has_product_or_cat = true;
-
                         $product_ids = explode(",", $product_ids);
                         $product_ids = array_filter(array_map('absint', $product_ids));
-                        if (in_array($id, $product_ids)) {
-                            $cart_function_matched = true;
+                        if (!in_array($id, $product_ids)) {
+                            $cart_function_matched = false;
                         }
                     }
                 }
             }
 
-            if ($cart_function_matched || $has_product_or_cat === false) {
+            if ($cart_function_matched) {
                 $price = str_replace('[price]', $price, $overridePriceTag);
             }
 
