@@ -7,7 +7,7 @@
  * Plugin Name:          Hide Cart Functions
  * Plugin URI:           http://wordpress.org/plugins/hide-cart-functions
  * Description:          Hide product's price, add to cart button, quantity selector, and product options on any product and order. Add message below or above description.
- * Version:              1.1.9
+ * Version:              1.2.0
  * Author:               Artios Media
  * Author URI:           http://www.artiosmedia.com
  * Assisting Developer:  Repon Hossain
@@ -29,7 +29,7 @@ if (!defined('WPINC')) {
     die;
 }
 
-define('HWCF_GLOBAl_VERSION', '1.1.9');
+define('HWCF_GLOBAl_VERSION', '1.2.0');
 define('HWCF_GLOBAl_NAME', 'hwcf-global');
 define('HWCF_GLOBAl_ABSPATH', __DIR__);
 define('HWCF_GLOBAl_BASE_NAME', plugin_basename(__FILE__));
@@ -378,8 +378,6 @@ if (!class_exists('HWCF_GLOBAl')) {
                 return $price;
             }
 
-            $cart_function_matched = true;
-
             if (!empty($settings_data) && is_array($settings_data)) {
                 foreach ($settings_data as $option) {
                     $overridePriceTag_key = hwcf_get_key_for_language('overridePriceTag');
@@ -388,40 +386,35 @@ if (!class_exists('HWCF_GLOBAl')) {
                     $product_ids = isset($option['hwcf_products']) ? $option['hwcf_products'] : null;
 
                     if (isset($option['hwcf_disable']) && (int)$option['hwcf_disable'] > 0) {
-                        $cart_function_matched = false;
                         continue;
                     }
 
                     $loggedin_users = isset($option['loggedinUsers']) ? $option['loggedinUsers'] : '';
 
-                    if ($loggedin_users == 1 && is_user_logged_in()) {
-                        $cart_function_matched = false;
+                    if ($loggedin_users == 1 && !is_user_logged_in()) {
+                        $price = str_replace('[price]', $price, $overridePriceTag);
                     }
 
-                    if ($loggedin_users == 2 && !is_user_logged_in()) {
-                        $cart_function_matched = false;
+                    if ($loggedin_users == 2 && is_user_logged_in()) {
+                        $price = str_replace('[price]', $price, $overridePriceTag);
                     }
 
                     if (isset($option['hwcf_categories']) && is_array($option['hwcf_categories'])) {
                         $product_cats_ids = wc_get_product_term_ids($id, 'product_cat');
                         $matched_cats = array_intersect($product_cats_ids, $option['hwcf_categories']);
-                        if (count($matched_cats) == 0) {
-                            $cart_function_matched = false;
+                        if (count($matched_cats) > 0) {
+                            $price = str_replace('[price]', $price, $overridePriceTag);
                         }
                     }
 
                     if ($product_ids != null) {
                         $product_ids = explode(",", $product_ids);
                         $product_ids = array_filter(array_map('absint', $product_ids));
-                        if (!in_array($id, $product_ids)) {
-                            $cart_function_matched = false;
+                        if (in_array($id, $product_ids)) {
+                            $price = str_replace('[price]', $price, $overridePriceTag);
                         }
                     }
                 }
-            }
-
-            if ($cart_function_matched) {
-                $price = str_replace('[price]', $price, $overridePriceTag);
             }
 
             return $price;
