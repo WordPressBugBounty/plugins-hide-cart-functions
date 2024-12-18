@@ -332,6 +332,49 @@ function hwcf_admin_notices_helper($message = '', $success = true) {
 }
 
 
+		/**
+         * Translate a given string using popular WordPress translation plugins.
+         *
+         * @param string $string The string to be translated.
+         * @return string Translated string.
+         */
+        function hwcf_translate_string($string) {
+            if (empty(trim($string))) {
+                return $string; // Return as is if the string is empty
+            }
+
+            $text_domain = 'hide-cart-functions';
+
+            // WPML Translation
+            if (function_exists('apply_filters')) {
+
+                $string = apply_filters('wpml_translate_single_string', $string, $text_domain, 'HWCF Text');
+            }
+            // Polylang Translation
+            elseif (function_exists('pll__')) {
+                $string = pll__($string);
+            }
+            // TranslatePress
+            elseif (function_exists('translate')) {
+                $string = translate($string, $text_domain);
+            }
+            // Loco Translate
+            elseif (class_exists('Loco_gettext')) {
+                $string = __($string, $text_domain);
+            }
+            // Weglot
+            elseif (function_exists('weglot_translate_text')) {
+                $string = weglot_translate_text($string);
+            }
+            // GTranslate
+            elseif (function_exists('gt_translate')) {
+                $string = gt_translate($string, $text_domain);
+            }
+
+            return $string;
+        }
+
+
 if (!function_exists('HWCF_Fix_Double_Selection')) {
 	function HWCF_Fix_Double_Selection() {
 		$hide_rules = get_option('hwcf_settings_data');

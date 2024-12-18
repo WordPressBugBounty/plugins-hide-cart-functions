@@ -7,18 +7,18 @@
  * Plugin Name:          Hide Cart Functions
  * Plugin URI:           http://wordpress.org/plugins/hide-cart-functions
  * Description:          Hide product's price, add to cart button, quantity selector, and product options on any product and order. Add message below or above description.
- * Version:              1.2.0
+ * Version:              1.2.1
  * Author:               Artios Media
  * Author URI:           http://www.artiosmedia.com
- * Assisting Developer:  Repon Hossain
+ * Assisting Developer:  Arafat Rahman
  * Copyright:            © 2022-2024 Artios Media (email: contact@artiosmedia.com).
  * License:              GNU General Public License v3.0
  * License URI:          http://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:          hide-cart-functions
  * Domain Path:          /languages
- * Tested up to:         6.7.0
+ * Tested up to:         6.7.1
  * WC requires at least: 6.5.0
- * WC tested up to:      9.4.1
+ * WC tested up to:      9.5.1
  * PHP tested up to:     8.3.13
  */
 
@@ -29,7 +29,7 @@ if (!defined('WPINC')) {
     die;
 }
 
-define('HWCF_GLOBAl_VERSION', '1.2.0');
+define('HWCF_GLOBAl_VERSION', '1.2.1');
 define('HWCF_GLOBAl_NAME', 'hwcf-global');
 define('HWCF_GLOBAl_ABSPATH', __DIR__);
 define('HWCF_GLOBAl_BASE_NAME', plugin_basename(__FILE__));
@@ -73,6 +73,8 @@ if (!class_exists('HWCF_GLOBAl')) {
             register_activation_hook(__FILE__, [$this, 'activation']);
             add_filter("woocommerce_get_price_html", [$this, 'modify_woocommerce_price'], 999);
             add_filter("woocommerce_cart_item_price", [$this, 'modify_woocommerce_price'], 999);
+            add_filter( 'fusion_attr_fusion-column', [ $this, 'product_column_attributes' ], 999,1 );
+            
         }
 
         public static function init() {
@@ -354,9 +356,9 @@ if (!class_exists('HWCF_GLOBAl')) {
 
                     if (!empty(trim($custom_message))) {
                         if ($custom_message_postion === 'below') {
-                            $excerpt .= " <div class='hwcf-ui-custom-message'> " . $custom_message . "</div>";
+                            $excerpt .= " <div class='hwcf-ui-custom-message'> " . esc_html(hwcf_translate_string($custom_message)) . "</div>";
                         } else {
-                            $excerpt = "<div class='hwcf-ui-custom-message'> " . $custom_message . "</div> " . $excerpt;
+                            $excerpt = "<div class='hwcf-ui-custom-message'> " . esc_html(hwcf_translate_string($custom_message)) . "</div> " . $excerpt;
                         }
                     }
                 }
@@ -401,9 +403,24 @@ if (!class_exists('HWCF_GLOBAl')) {
 
                     if (isset($option['hwcf_categories']) && is_array($option['hwcf_categories'])) {
                         $product_cats_ids = wc_get_product_term_ids($id, 'product_cat');
-                        $matched_cats = array_intersect($product_cats_ids, $option['hwcf_categories']);
-                        if (count($matched_cats) > 0) {
-                            $price = str_replace('[price]', $price, $overridePriceTag);
+                    
+                        if (!empty($product_cats_ids) && !empty($option['hwcf_categories'])) {
+                            
+                            // Clean both arrays to ensure valid integers
+                            $product_cats_ids = array_map('intval', $product_cats_ids);
+                            $option_cats_ids  = array_map('intval', $option['hwcf_categories']);
+                    
+                            // Compare product categories with configured categories
+                            $matched_cats = array_filter($product_cats_ids, function($cat_id) use ($option_cats_ids) {
+                                return in_array($cat_id, $option_cats_ids, true);
+                            });
+                    
+                            if (!empty($matched_cats)) {
+                                if (!empty($overridePriceTag)) {
+                                    $priceTag = hwcf_translate_string($overridePriceTag);
+                                    $price = str_replace('[price]', $price, $overridePriceTag);
+                                }
+                            }
                         }
                     }
 
@@ -419,6 +436,37 @@ if (!class_exists('HWCF_GLOBAl')) {
 
             return $price;
         }
+
+
+
+        /**
+         * Adds product category slugs as CSS classes to column attributes.
+         * @param array $attr Column attributes.
+         * @return array Modified attributes with category classes.
+         */
+        public function product_column_attributes( $attr ) {
+            if ( is_product() || is_shop() || is_product_category() ) {
+                global $post;
+                // Get the product's categories
+                $terms = get_the_terms( $post->ID, 'product_cat' );
+
+                if ( $terms && ! is_wp_error( $terms ) ) {
+                    foreach ( $terms as $term ) {
+                        if ( isset( $attr['class'] ) ) {
+                            $attr['class'] .= ' product_cat-' . $term->slug;
+                        } else {
+                            $attr['class'] = 'product_cat-' . $term->slug;
+                        }
+                    }
+                }
+
+            }
+    
+            return $attr;
+
+        }
+
+
 
         /**
          * Run plugin option clean-up on plugin deactivation
