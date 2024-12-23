@@ -5,8 +5,8 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: hide price, hide quantity, hide option, hide add to cart, hide category
 Requires at least: 4.6
 Tested up to: 6.7.1
-Version: 1.2.2
-Stable tag: 1.2.2
+Version: 1.2.3
+Stable tag: 1.2.3
 Requires PHP: 7.4.33
 License: GPLv3 or later license and included
 URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -37,7 +37,7 @@ The plugin supports languages including English, Spanish, Portuguese, French, an
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Follow plugin setting panel in WordPress settings menu.
 
-== Technical Details for Release 1.2.2 ==
+== Technical Details for Release 1.2.3 ==
 
 Load time: 0.343 s; Memory usage: 3.54 MiB
 PHP up to tested version: 8.3.13
@@ -80,7 +80,10 @@ None to report as of the release version
 
 == Changelog ==
 
-1.2.2 12/22/24
+1.2.3 12/22/24
+- Fixed custom message is not showing the HTML code
+
+1.2.2 12/21/24
 - Fixed "Add to Cart" button visibility in TI WooCommerce Wishlist plugin
 
 

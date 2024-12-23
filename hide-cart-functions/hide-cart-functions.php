@@ -7,7 +7,7 @@
  * Plugin Name:          Hide Cart Functions
  * Plugin URI:           http://wordpress.org/plugins/hide-cart-functions
  * Description:          Hide product's price, add to cart button, quantity selector, and product options on any product and order. Add message below or above description.
- * Version:              1.2.2
+ * Version:              1.2.3
  * Author:               Artios Media
  * Author URI:           http://www.artiosmedia.com
  * Assisting Developer:  Arafat Rahman
@@ -367,9 +367,9 @@ if (!class_exists('HWCF_GLOBAl')) {
 
                     if (!empty(trim($custom_message))) {
                         if ($custom_message_postion === 'below') {
-                            $excerpt .= " <div class='hwcf-ui-custom-message'> " . esc_html(hwcf_translate_string($custom_message)) . "</div>";
+                            $excerpt .= " <div class='hwcf-ui-custom-message'> " . hwcf_translate_string($custom_message) . "</div>";
                         } else {
-                            $excerpt = "<div class='hwcf-ui-custom-message'> " . esc_html(hwcf_translate_string($custom_message)) . "</div> " . $excerpt;
+                            $excerpt = "<div class='hwcf-ui-custom-message'> " . hwcf_translate_string($custom_message) . "</div> " . $excerpt;
                         }
                     }
                 }
