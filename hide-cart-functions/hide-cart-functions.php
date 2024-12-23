@@ -7,7 +7,7 @@
  * Plugin Name:          Hide Cart Functions
  * Plugin URI:           http://wordpress.org/plugins/hide-cart-functions
  * Description:          Hide product's price, add to cart button, quantity selector, and product options on any product and order. Add message below or above description.
- * Version:              1.2.1
+ * Version:              1.2.2
  * Author:               Artios Media
  * Author URI:           http://www.artiosmedia.com
  * Assisting Developer:  Arafat Rahman
@@ -29,7 +29,7 @@ if (!defined('WPINC')) {
     die;
 }
 
-define('HWCF_GLOBAl_VERSION', '1.2.1');
+define('HWCF_GLOBAl_VERSION', '1.2.2');
 define('HWCF_GLOBAl_NAME', 'hwcf-global');
 define('HWCF_GLOBAl_ABSPATH', __DIR__);
 define('HWCF_GLOBAl_BASE_NAME', plugin_basename(__FILE__));
@@ -47,6 +47,9 @@ add_action('before_woocommerce_init', function () {
         \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', __FILE__, true);
     }
 });
+
+
+
 
 if (!class_exists('HWCF_GLOBAl')) {
 
@@ -74,8 +77,16 @@ if (!class_exists('HWCF_GLOBAl')) {
             add_filter("woocommerce_get_price_html", [$this, 'modify_woocommerce_price'], 999);
             add_filter("woocommerce_cart_item_price", [$this, 'modify_woocommerce_price'], 999);
             add_filter( 'fusion_attr_fusion-column', [ $this, 'product_column_attributes' ], 999,1 );
-            
+            add_filter('tinvwl_wishlist_item_price', [$this, 'modify_tinvwl_wishlist_item_price'], 999, 3);
+            add_filter( 'tinvwl_wishlist_item_action_add_to_cart', [$this,'hide_add_to_cart_button'], 1, 3 );
+            add_filter( 'tinvwl_wishlist_item_action_default_loop_button', [$this,'hide_add_to_cart_button'], 1, 3 );
+            add_filter( 'tinvwl_wishlist_item_cb', [$this,'hide_select_checkbox_highest_priority'], 1, 3 );
+            add_filter( 'tinvwl_manage_buttons_create', [$this,'tinvwl_hide_add_all_to_cart'], 1,  );
+
+
+
         }
+
 
         public static function init() {
             if (!self::$_instance) {
@@ -436,6 +447,207 @@ if (!class_exists('HWCF_GLOBAl')) {
 
             return $price;
         }
+
+
+
+        public function modify_tinvwl_wishlist_item_price($price, $wl_product, $product) {
+            $settings_data    = hwcf_get_hwcf_data();
+            // Extract the product ID
+            $id = isset($wl_product['product_id']) ? absint($wl_product['product_id']) : null;
+
+            if (empty($settings_data)) {
+                return $price;
+            }
+
+            if (!empty($settings_data) && is_array($settings_data)) {
+                foreach ($settings_data as $option) {
+                    $overridePriceTag_key = hwcf_get_key_for_language('overridePriceTag');
+                    $overridePriceTag = !empty($option[$overridePriceTag_key]) ? $option[$overridePriceTag_key] : $price;
+
+                    $product_ids = isset($option['hwcf_products']) ? $option['hwcf_products'] : null;
+
+                    if (isset($option['hwcf_disable']) && (int)$option['hwcf_disable'] > 0) {
+                        continue;
+                    }
+
+                    $loggedin_users = isset($option['loggedinUsers']) ? $option['loggedinUsers'] : '';
+
+                    if ($loggedin_users == 1 && !is_user_logged_in()) {
+                        $price = str_replace('[price]', $price, $overridePriceTag);
+                    }
+
+                    if ($loggedin_users == 2 && is_user_logged_in()) {
+                        $price = str_replace('[price]', $price, $overridePriceTag);
+                    }
+
+                    if (isset($option['hwcf_categories']) && is_array($option['hwcf_categories'])) {
+                        $product_cats_ids = wc_get_product_term_ids($id, 'product_cat');
+
+                    
+                        if (!empty($product_cats_ids) && !empty($option['hwcf_categories'])) {
+                            
+                            // Clean both arrays to ensure valid integers
+                            $product_cats_ids = array_map('intval', $product_cats_ids);
+                            $option_cats_ids  = array_map('intval', $option['hwcf_categories']);
+                    
+                            // Compare product categories with configured categories
+                            $matched_cats = array_filter($product_cats_ids, function($cat_id) use ($option_cats_ids) {
+                                return in_array($cat_id, $option_cats_ids, true);
+                            });
+                    
+                            if (!empty($matched_cats)) {
+                                if (!empty($overridePriceTag)) {
+                                    $priceTag = hwcf_translate_string($overridePriceTag);
+                                    $price = str_replace('[price]', $price, $overridePriceTag);
+                                }
+                            }
+                        }
+                    }
+
+                    if ($product_ids != null) {
+                        $product_ids = explode(",", $product_ids);
+                        $product_ids = array_filter(array_map('absint', $product_ids));
+                        if (in_array($id, $product_ids)) {
+                            $price = str_replace('[price]', $price, $overridePriceTag);
+                        }
+                    }
+                }
+            }
+
+            return $price;
+
+        }
+
+        public function hide_select_checkbox_highest_priority($checkbox_html, $wl_product, $product){
+
+            $settings_data    = hwcf_get_hwcf_data();
+            // Extract the product ID
+            $id = isset($wl_product['product_id']) ? absint($wl_product['product_id']) : null;
+
+            if (empty($settings_data)) {
+                return false;
+            }
+
+            if (!empty($settings_data) && is_array($settings_data)) {
+                foreach ($settings_data as $option) {
+                    
+
+                    $product_ids = isset($option['hwcf_products']) ? $option['hwcf_products'] : null;
+
+                    if (isset($option['hwcf_disable']) && (int)$option['hwcf_disable'] > 0) {
+                        continue;
+                    }
+
+                    $hide_add_to_cart = isset($option['hwcf_hide_add_to_cart']) ? (int)($option['hwcf_hide_add_to_cart']) : 0;
+
+
+                    if (isset($option['hwcf_categories']) && is_array($option['hwcf_categories'])) {
+                        $product_cats_ids = wc_get_product_term_ids($id, 'product_cat');
+
+                      //  print_r($option['hwcf_categories']);
+
+                      if (isset($option['hwcf_categories']) && is_array($option['hwcf_categories'])) {
+                        $product_cats_ids = wc_get_product_term_ids($id, 'product_cat');
+                        $matched_cats = array_intersect($product_cats_ids, $option['hwcf_categories']);
+                        if (!empty($matched_cats)) {
+                            return '';
+                        }else{
+                            return $checkbox_html;
+                        }
+                    }
+
+          
+                    }
+
+                    if ($product_ids != null) {
+                        $product_ids = explode(",", $product_ids);
+                        $product_ids = array_filter(array_map('absint', $product_ids));
+                        if (in_array($id, $product_ids)) {
+                           return false;
+                        }else{
+                            return $checkbox_html;
+                        }
+                    }
+                }
+            }
+
+            return $checkbox_html;
+           
+
+        }
+
+
+        public function hide_add_to_cart_button( $value, $wl_product, $product ) {            
+           
+            $settings_data    = hwcf_get_hwcf_data();
+            // Extract the product ID
+            $id = isset($wl_product['product_id']) ? absint($wl_product['product_id']) : null;
+
+            if (empty($settings_data)) {
+                return false;
+            }
+
+            if (!empty($settings_data) && is_array($settings_data)) {
+                foreach ($settings_data as $option) {
+                    
+
+                    $product_ids = isset($option['hwcf_products']) ? $option['hwcf_products'] : null;
+
+                    if (isset($option['hwcf_disable']) && (int)$option['hwcf_disable'] > 0) {
+                        continue;
+                    }
+
+                    $hide_add_to_cart = isset($option['hwcf_hide_add_to_cart']) ? (int)($option['hwcf_hide_add_to_cart']) : 0;
+
+
+                    if (isset($option['hwcf_categories']) && is_array($option['hwcf_categories'])) {
+                        $product_cats_ids = wc_get_product_term_ids($id, 'product_cat');
+
+                      //  print_r($option['hwcf_categories']);
+
+                      if (isset($option['hwcf_categories']) && is_array($option['hwcf_categories'])) {
+                        $product_cats_ids = wc_get_product_term_ids($id, 'product_cat');
+                        $matched_cats = array_intersect($product_cats_ids, $option['hwcf_categories']);
+                        if (!empty($matched_cats)) {
+                            return false;
+                        }else{
+                            return true;
+                        }
+                    }
+
+          
+                    }
+
+                    if ($product_ids != null) {
+                        $product_ids = explode(",", $product_ids);
+                        $product_ids = array_filter(array_map('absint', $product_ids));
+                        if (in_array($id, $product_ids)) {
+                           return false;
+                        }else{
+                            return true; 
+                        }
+                    }
+                }
+            }
+           
+        }
+
+        public function tinvwl_hide_add_all_to_cart($button){
+            $settings_data    = hwcf_get_hwcf_data();
+            
+            if (!empty($settings_data) && is_array($settings_data)) {
+                foreach ($settings_data as $option) {
+                    $hide_add_to_cart = isset($option['hwcf_hide_add_to_cart']) ? (int)($option['hwcf_hide_add_to_cart']) : 0;
+                    if($hide_add_to_cart ){
+                        $button['2'] = array();
+                    }
+                }
+            }
+            
+            return $button;
+
+        }
+
 
 
 
