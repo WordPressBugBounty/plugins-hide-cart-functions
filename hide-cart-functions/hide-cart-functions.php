@@ -7,7 +7,7 @@
  * Plugin Name:          Hide Cart Functions
  * Plugin URI:           http://wordpress.org/plugins/hide-cart-functions
  * Description:          Hide product's price, add to cart button, quantity selector, and product options on any product and order. Add message below or above description.
- * Version:              1.2.3
+ * Version:              1.2.4
  * Author:               Artios Media
  * Author URI:           http://www.artiosmedia.com
  * Assisting Developer:  Arafat Rahman
@@ -18,7 +18,7 @@
  * Domain Path:          /languages
  * Tested up to:         6.7.1
  * WC requires at least: 6.5.0
- * WC tested up to:      9.5.1
+ * WC tested up to:      9.5.2
  * PHP tested up to:     8.3.13
  */
 
@@ -29,7 +29,7 @@ if (!defined('WPINC')) {
     die;
 }
 
-define('HWCF_GLOBAl_VERSION', '1.2.2');
+define('HWCF_GLOBAl_VERSION', '1.2.4');
 define('HWCF_GLOBAl_NAME', 'hwcf-global');
 define('HWCF_GLOBAl_ABSPATH', __DIR__);
 define('HWCF_GLOBAl_BASE_NAME', plugin_basename(__FILE__));
@@ -348,7 +348,7 @@ if (!class_exists('HWCF_GLOBAl')) {
                         continue;
                     }
 
-                    if (!empty(trim($products_limit))) {
+                    if (!empty(trim($products_limit)) && isset($post->ID)) {
                         $product_ids = explode(",", $products_limit);
                         $product_ids = array_map('trim', $product_ids);
                         if (!in_array($post->ID, $product_ids)) {
@@ -356,7 +356,7 @@ if (!class_exists('HWCF_GLOBAl')) {
                         }
                     }
 
-                    if (!empty($categories_limit)) {
+                    if (!empty($categories_limit) && isset($post->ID)) {
                         $category_ids = $categories_limit;
                         $cat_ids = wp_get_post_terms($post->ID, 'product_cat', array('fields' => 'ids'));
                         $intersection = array_intersect($category_ids, $cat_ids);
@@ -429,6 +429,11 @@ if (!class_exists('HWCF_GLOBAl')) {
                             if (!empty($matched_cats)) {
                                 if (!empty($overridePriceTag)) {
                                     $priceTag = hwcf_translate_string($overridePriceTag);
+                                    if ($overridePriceTag === "[price]") {
+                                        $price = '';
+                                    }else{
+                                        $price = $price;
+                                    }        
                                     $price = str_replace('[price]', $price, $overridePriceTag);
                                 }
                             }
@@ -439,6 +444,12 @@ if (!class_exists('HWCF_GLOBAl')) {
                         $product_ids = explode(",", $product_ids);
                         $product_ids = array_filter(array_map('absint', $product_ids));
                         if (in_array($id, $product_ids)) {
+                            if ($overridePriceTag === "[price]") {
+                                $price = '';
+                            }else{
+                                $price = $price;
+                            }
+
                             $price = str_replace('[price]', $price, $overridePriceTag);
                         }
                     }
