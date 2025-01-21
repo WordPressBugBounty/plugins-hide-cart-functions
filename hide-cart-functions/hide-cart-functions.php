@@ -7,7 +7,7 @@
  * Plugin Name:          Hide Cart Functions
  * Plugin URI:           http://wordpress.org/plugins/hide-cart-functions
  * Description:          Hide product's price, add to cart button, quantity selector, and product options on any product and order. Add message below or above description.
- * Version:              1.2.4
+ * Version:              1.2.5
  * Author:               Artios Media
  * Author URI:           http://www.artiosmedia.com
  * Assisting Developer:  Arafat Rahman
@@ -29,7 +29,7 @@ if (!defined('WPINC')) {
     die;
 }
 
-define('HWCF_GLOBAl_VERSION', '1.2.4');
+define('HWCF_GLOBAl_VERSION', '1.2.5');
 define('HWCF_GLOBAl_NAME', 'hwcf-global');
 define('HWCF_GLOBAl_ABSPATH', __DIR__);
 define('HWCF_GLOBAl_BASE_NAME', plugin_basename(__FILE__));
@@ -428,12 +428,10 @@ if (!class_exists('HWCF_GLOBAl')) {
                     
                             if (!empty($matched_cats)) {
                                 if (!empty($overridePriceTag)) {
-                                    $priceTag = hwcf_translate_string($overridePriceTag);
-                                    if ($overridePriceTag === "[price]") {
+                                    if(isset($option['hwcf_hide_price']) && (int)$option['hwcf_hide_price'] > 0){
                                         $price = '';
-                                    }else{
-                                        $price = $price;
-                                    }        
+                                    }
+                                    $priceTag = hwcf_translate_string($overridePriceTag);
                                     $price = str_replace('[price]', $price, $overridePriceTag);
                                 }
                             }
@@ -444,12 +442,9 @@ if (!class_exists('HWCF_GLOBAl')) {
                         $product_ids = explode(",", $product_ids);
                         $product_ids = array_filter(array_map('absint', $product_ids));
                         if (in_array($id, $product_ids)) {
-                            if ($overridePriceTag === "[price]") {
+                            if(isset($option['hwcf_hide_price']) && (int)$option['hwcf_hide_price'] > 0){
                                 $price = '';
-                            }else{
-                                $price = $price;
                             }
-
                             $price = str_replace('[price]', $price, $overridePriceTag);
                         }
                     }
