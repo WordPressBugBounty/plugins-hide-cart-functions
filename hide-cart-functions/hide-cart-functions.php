@@ -7,7 +7,7 @@
  * Plugin Name:          Hide Cart Functions
  * Plugin URI:           http://wordpress.org/plugins/hide-cart-functions
  * Description:          Hide product's price, add to cart button, quantity selector, and product options on any product and order. Add message below or above description.
- * Version:              1.2.5
+ * Version:              1.2.6
  * Author:               Artios Media
  * Author URI:           http://www.artiosmedia.com
  * Assisting Developer:  Arafat Rahman
@@ -18,8 +18,8 @@
  * Domain Path:          /languages
  * Tested up to:         6.7.1
  * WC requires at least: 6.5.0
- * WC tested up to:      9.5.2
- * PHP tested up to:     8.3.13
+ * WC tested up to:      9.6.1
+ * PHP tested up to:     8.3.15
  */
 
 namespace Artiosmedia\WC_Purchase_Customization;
@@ -29,7 +29,7 @@ if (!defined('WPINC')) {
     die;
 }
 
-define('HWCF_GLOBAl_VERSION', '1.2.5');
+define('HWCF_GLOBAl_VERSION', '1.2.6');
 define('HWCF_GLOBAl_NAME', 'hwcf-global');
 define('HWCF_GLOBAl_ABSPATH', __DIR__);
 define('HWCF_GLOBAl_BASE_NAME', plugin_basename(__FILE__));
@@ -163,12 +163,23 @@ if (!class_exists('HWCF_GLOBAl')) {
                         //skip setup if it's disabled
                         continue;
                     }
+
+                    if(in_array(1, $loggedin_users) && !is_user_logged_in()){
+                        continue;
+                    }elseif(in_array(2, $loggedin_users) && is_user_logged_in()){
+                        continue;
+                    }
+                    
+
+                    /*
+                    
                     if (!is_user_logged_in() && in_array(1, $loggedin_users)) {
                     } elseif (is_user_logged_in() && in_array(2, $loggedin_users)) {
                     } elseif (isset($loggedin_users[0]) && $loggedin_users[0] == '') {
                     } else {
                         continue;
                     }
+                    */
 
                     if (!empty($categories_limit)) {
                         //category limitation is 
@@ -341,12 +352,19 @@ if (!class_exists('HWCF_GLOBAl')) {
                         continue;
                     }
 
+                    if(in_array(1, $loggedin_users) && !is_user_logged_in()){
+                        continue;
+                    }elseif(in_array(2, $loggedin_users) && is_user_logged_in()){
+                        continue;
+                    }
+                    /*
                     if (!is_user_logged_in() && in_array(1, $loggedin_users)) {
                     } elseif (is_user_logged_in() && in_array(2, $loggedin_users)) {
                     } elseif (isset($loggedin_users[0]) && $loggedin_users[0] == '') {
                     } else {
                         continue;
                     }
+                    */
 
                     if (!empty(trim($products_limit)) && isset($post->ID)) {
                         $product_ids = explode(",", $products_limit);

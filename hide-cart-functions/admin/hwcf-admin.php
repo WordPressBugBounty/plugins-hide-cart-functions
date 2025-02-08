@@ -211,7 +211,7 @@ if (!class_exists('hwcf_admin')) {
 		public function add_description_link($links, $file) {
 			if (HWCF_GLOBAl_BASE_NAME == $file) {
 				$row_meta = array(
-					'donation' => '<a href="' . esc_url('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=E7LS2JGFPLTH2') . '" target="_blank">' . esc_html__('Donation for Homeless', 'hide-cart-functions') . '</a>'
+					'donation' => '<a href="' . esc_url('https://www.zeffy.com/en-US/donation-form/your-donation-makes-a-difference-6') . '" target="_blank">' . esc_html__('Donation for Homeless', 'hide-cart-functions') . '</a>'
 				);
 				return array_merge($links, $row_meta);
 			}
