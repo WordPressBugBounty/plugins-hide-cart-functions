@@ -5,8 +5,8 @@ Donate link: https://www.zeffy.com/en-US/donation-form/your-donation-makes-a-dif
 Tags: hide price, hide quantity, hide option, hide add to cart, hide category
 Requires at least: 4.6
 Tested up to: 6.7.2
-Version: 1.2.7
-Stable tag: 1.2.7
+Version: 1.2.8
+Stable tag: 1.2.8
 Requires PHP: 7.4.33
 License: GPLv3 or later license and included
 URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -37,7 +37,7 @@ The plugin supports languages including English, Spanish, Portuguese, French, an
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Follow the plugin setting panel in the WordPress settings menu.
 
-== Technical Details for Release 1.2.7 ==
+== Technical Details for Release 1.2.8 ==
 
 Load time: 0.343 s; Memory usage: 3.54 MiB
 PHP up to tested version: 8.3.17
@@ -79,6 +79,9 @@ Please click the following link to check the current stability of this plugin:
 There is none to report as of the release version.
 
 == Changelog ==
+
+1.2.8 02/13/25
+- Bug Fix: Override Price Tag text overriding the prices for all products
 
 1.2.7 02/12/25
 - Bug Fix: Hiding all selections from BOTH the guest and the logged-in user

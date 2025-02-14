@@ -7,7 +7,7 @@
  * Plugin Name:          Hide Cart Functions
  * Plugin URI:           http://wordpress.org/plugins/hide-cart-functions
  * Description:          Hide product's price, add to cart button, quantity selector, and product options on any product and order. Add message below or above description.
- * Version:              1.2.7
+ * Version:              1.2.8
  * Author:               Artios Media
  * Author URI:           http://www.artiosmedia.com
  * Assisting Developer:  Arafat Rahman
@@ -16,7 +16,7 @@
  * License URI:          http://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:          hide-cart-functions
  * Domain Path:          /languages
- * Tested up to:         6.7.1
+ * Tested up to:         6.7.2
  * WC requires at least: 6.5.0
  * WC tested up to:      9.5.2
  * PHP tested up to:     8.3.13
@@ -29,7 +29,7 @@ if (!defined('WPINC')) {
     die;
 }
 
-define('HWCF_GLOBAl_VERSION', '1.2.5');
+define('HWCF_GLOBAl_VERSION', '1.2.8');
 define('HWCF_GLOBAl_NAME', 'hwcf-global');
 define('HWCF_GLOBAl_ABSPATH', __DIR__);
 define('HWCF_GLOBAl_BASE_NAME', plugin_basename(__FILE__));
@@ -428,12 +428,7 @@ if (!class_exists('HWCF_GLOBAl')) {
                     }elseif(in_array(2, $loggedin_users) && !is_user_logged_in()){
                         continue;
                     }
-                    $price = str_replace('[price]', $price, $overridePriceTag);
 
-
-                    /*
-
-                    $loggedin_users = isset($option['loggedinUsers']) ? $option['loggedinUsers'] : '';
 
                     if ($loggedin_users == 1 && !is_user_logged_in()) {
                         $price = str_replace('[price]', $price, $overridePriceTag);
@@ -443,7 +438,7 @@ if (!class_exists('HWCF_GLOBAl')) {
                         $price = str_replace('[price]', $price, $overridePriceTag);
                     }
 
-                    */
+                    
 
                     if (isset($option['hwcf_categories']) && is_array($option['hwcf_categories'])) {
                         $product_cats_ids = wc_get_product_term_ids($id, 'product_cat');
