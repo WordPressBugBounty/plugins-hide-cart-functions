@@ -95,7 +95,7 @@ if (!class_exists('hwcf_admin')) {
 		public function dismiss_notice() {
 			if (current_user_can("manage_options")) {
 				if (!empty($_POST["dismissed_final"])) {
-					update_option("pcfw_notice_dismiss", null);
+					update_option("pcfw_notice_dismiss", '1');
 				} else {
 					update_option("pcfw_notice_dismiss", date('Y-m-d', strtotime('+30 days')));
 				}
@@ -123,11 +123,13 @@ if (!class_exists('hwcf_admin')) {
 		 */
 		public function admin_notice() {
 			$last_dismissed = get_option("pcfw_notice_dismiss");
-
-			if (!empty($last_dismissed) && current_time('timestamp') >= strtotime($last_dismissed)) {
+			if($last_dismissed == '1' || $last_dismissed === ''){ return;}
+			$current_date = date('Y-m-d');
+			$last_dismissed_date = substr($last_dismissed, 0, 10);
+			if (!empty($last_dismissed) && $current_date >= $last_dismissed_date || empty($last_dismissed)) {
 				echo '<div class="notice notice-info is-dismissible" id="pcfw_notice">
-                <p>How do you like <strong>Hide Cart Functions</strong>? Your feedback assures the continued maintenance of this plugin! <a class="button button-primary pcfw-feedback" href="https://wordpress.org/plugins/hide-cart-functions/#reviews" target="_blank">Leave Feedback</a></p>
-                </div>';
+				<p>How do you like <strong>Hide Cart Functions</strong>? Your feedback assures the continued maintenance of this plugin! <a class="button button-primary pcfw-feedback" href="https://wordpress.org/plugins/hide-cart-functions/#reviews" target="_blank">Leave Feedback</a></p>
+				</div>';
 			}
 		}
 

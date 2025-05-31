@@ -4,26 +4,26 @@ Contributors: Artiosmedia, steveneray, arafatrahmanbd
 Donate link: https://www.zeffy.com/en-US/donation-form/your-donation-makes-a-difference-6
 Tags: hide price, hide quantity, hide option, hide add to cart, hide category
 Requires at least: 4.6
-Tested up to: 6.7.2
-Version: 1.2.8
-Stable tag: 1.2.8
+Tested up to: 6.8.1
+Version: 1.2.9
+Stable tag: 1.2.9
 Requires PHP: 7.4.33
 License: GPLv3 or later license and included
 URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Hide the product's price, add to cart button, quantity, and options on any product and order. Inject an optional message.
+Hide the product's price, add-to-cart button, quantity, and options on any product and order. Inject an optional message.
 
 == Description ==
 
-Several plugins provide a means to edit the shopping page cart functions, including hiding the price, "Add to Cart" button, quantity selector, and product options dropdown, but not all in one plugin. Additionally, none of the available plugins or snippets allow a custom message to appear in any format, including embedded graphics, nor do they allow any combination of hidden shopping cart elements on the same WooCommerce website.
+Several plugins offer the ability to edit the shopping cart functions on the page, including hiding the price, "Add to Cart" button, quantity selector, and product options dropdown, but not all in one plugin. Additionally, none of the available plugins or snippets allow a custom message to appear in any format, including embedded graphics, nor do they allow any combination of hidden shopping cart elements on the same WooCommerce website.
 
 At least not until now! <strong>Hide Cart Functions</strong> simply gives a WooCommerce website complete control over each user side shop's function while at the same time allowing a user to create several rules to apply to various categories or products within the same system. 
 
-Take your shopping page edits one step further; a user can also enter IDs or classes to hide custom elements. This extra provision provides a means for users to customize third-party plugin functions that are additional to WooCommerce options or adjust those provided by themes with WooCommerce templates. This additional level of customization may come with unexpected results; therefore, use it at your own discretion, followed by a good deal of testing. We cannot resolve any conflicts resulting in the use of this field.
+Take your shopping page edits one step further; a user can also enter IDs or classes to hide custom elements. This additional provision enables users to customize third-party plugin functions beyond WooCommerce options or adjust those provided by themes with WooCommerce templates. This extra level of customization may yield unexpected results; therefore, use it at your own discretion, accompanied by thorough testing. We cannot resolve any conflicts resulting from the use of this field.
 
 As of <strong>version 1.0.4</strong>, a requested setting has been added to each rule that allows you to apply the rule to Guest Users only or Logged-In users only but doesn't allow both at once, which would cause a conflict. Leave both unchecked to apply to all users.
 
-As of <strong>version 1.0.5</strong>, search and select for products with a 3-letter minimum was added to ease the selection of products to the rule applies. This addition works in combination with the Product ID field, meaning you can use one or the other or both at once.
+As of <strong>version 1.0.5</strong>, search and select for products with a 3-letter minimum was added to ease the selection of products for which the rule applies. This addition works in conjunction with the Product ID field, allowing you to use one, both, or neither at the same time.
 
 <strong>How to Find a Product ID:</strong> Open your WordPress dashboard and click on Pages > All Pages. Then, select the page for which you need to find the ID. Once the page has opened, you need to look at the URL in your web browser’s address bar. Here, you will find the page ID number displayed within the page URL, immediately behind ?post=.
 
@@ -37,13 +37,13 @@ The plugin supports languages including English, Spanish, Portuguese, French, an
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Follow the plugin setting panel in the WordPress settings menu.
 
-== Technical Details for Release 1.2.8 ==
+== Technical Details for Release 1.2.9 ==
 
 Load time: 0.343 s; Memory usage: 3.54 MiB
-PHP up to tested version: 8.3.17
-MySQL up to tested version: 8.4.4
-MariaDB up to tested version: 11.8.0
-cURL up to tested version: 8.12.0, OpenSSL/3.4.1
+PHP up to tested version: 8.3.20
+MySQL up to tested version: 8.4.5
+MariaDB up to tested version: 12.0
+cURL up to tested version: 8.14.0, OpenSSL/3.5.0
 PHP 7.4, 8.0, 8.1, 8.2, and 8.3 compliant. Not tested on 8.4 yet.
 
 == Using in Multisite Installation ==
@@ -79,6 +79,11 @@ Please click the following link to check the current stability of this plugin:
 There is none to report as of the release version.
 
 == Changelog ==
+
+1.2.9 05/30/25
+- Bug Fix: The nag bar for Hide Cart Functions not resetting.
+- Assure compliance with WordPress 6.8.1
+- Assure compliance with WooCommerce 9.8.5
 
 1.2.8 02/13/25
 - Bug Fix: Override Price Tag text overriding the prices for all products
