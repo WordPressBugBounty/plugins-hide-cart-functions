@@ -1,4 +1,13 @@
 <?php
+/**
+ * Hide Cart Functions Utility Functions
+ *
+ * @package Hide_Cart_Functions
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Fetch our HWCF option data.
@@ -6,22 +15,20 @@
  * @return mixed
  */
 function hwcf_get_hwcf_data() {
-	$data = array_filter((array)apply_filters('hwcf_get_hwcf_data', get_option('hwcf_settings_data', []), get_current_blog_id()));
+	$data = array_filter( (array) apply_filters( 'hwcf_get_hwcf_data', get_option( 'hwcf_settings_data', array() ), get_current_blog_id() ) );
 
-	array_walk($data, function (&$settings) {
-		$lang_key = hwcf_get_key_for_language('hwcf_custom_message');
-		if (isset($settings[$lang_key])) {
-			$settings['hwcf_custom_message'] = $settings[$lang_key];
+	array_walk( $data, function ( &$settings ) {
+		$lang_key = hwcf_get_key_for_language( 'hwcf_custom_message' );
+		if ( isset( $settings[ $lang_key ] ) ) {
+			$settings['hwcf_custom_message'] = $settings[ $lang_key ];
 		}
-	});
-
-	//var_dump($data);
+	} );
 
 	return $data;
 }
 
 /**
- * Get the selected hwcf from the $_POST global.
+ * Get the selected hwcf from the $_GET global.
  *
  * @return bool|string False on no result, sanitized hwcf if set.
  * @internal
@@ -31,13 +38,15 @@ function hwcf_get_current_hwcf() {
 
 	$hwcfs = false;
 
-	if (!empty($_GET) && isset($_GET['hwcf_item'])) {
-		$hwcfs = sanitize_text_field($_GET['hwcf_item']);
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reading GET param for admin page context
+	if ( ! empty( $_GET ) && isset( $_GET['hwcf_item'] ) ) {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$hwcfs = sanitize_text_field( wp_unslash( $_GET['hwcf_item'] ) );
 	} else {
 		$hwcfs = hwcf_get_hwcf_data();
-		if (!empty($hwcfs)) {
+		if ( ! empty( $hwcfs ) ) {
 			// Will return the first array key.
-			$hwcfs = key($hwcfs);
+			$hwcfs = key( $hwcfs );
 		}
 	}
 
@@ -46,7 +55,7 @@ function hwcf_get_current_hwcf() {
 	 *
 	 * @param string $hwcfs hwcf slug.
 	 */
-	return apply_filters('hwcf_current_hwcf', $hwcfs);
+	return apply_filters( 'hwcf_current_hwcf', $hwcfs );
 }
 
 /**
@@ -75,15 +84,15 @@ function hwcf_process_hwcf() {
 
 	if (isset($_GET['new_hwcf'])) {
 		if ((int)$_GET['new_hwcf'] === 1) {
-			add_action('admin_notices', "hwcf_item_update_success_admin_notice");
+			// Toast notification handles this now - no admin notice needed
 			add_filter('removable_query_args', 'hwcf_saved_hwcf_filter_removable_query_args');
 		}
 	}
 
 	if (isset($_GET['deleted_hwcf'])) {
 		if ((int)$_GET['deleted_hwcf'] === 1) {
-			add_action('admin_notices', "hwcf_item_delete_success_admin_notice");
-			add_filter('removable_query_args', 'taxopress_deleted_hwcf_filter_removable_query_args');
+			// Toast notification handles this now - no admin notice needed
+			add_filter('removable_query_args', 'hwcf_deleted_filter_removable_query_args');
 		}
 	}
 
@@ -112,9 +121,9 @@ function hwcf_process_hwcf() {
 			exit();
 		}
 	} elseif (isset($_REQUEST['action']) && $_REQUEST['action'] === 'hwcf-delete-item' && isset($_REQUEST['_wpnonce']) && isset($_REQUEST['hwcf_item'])) {
-		$nonce = sanitize_text_field($_REQUEST['_wpnonce']);
+		$nonce = sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) );
 		if (wp_verify_nonce($nonce, 'hwcf-action-request-nonce')) {
-			hwcf_delete_hwcf(sanitize_text_field($_REQUEST['hwcf_item']));
+			hwcf_delete_hwcf(sanitize_text_field( wp_unslash( $_REQUEST['hwcf_item'] ) ));
 		}
 		add_filter('removable_query_args', 'hwcf_delete_hwcf_filter_removable_query_args');
 	}
@@ -184,37 +193,38 @@ function hwcf_update_hwcf($data = []) {
 	}
 
 	$lang_key = hwcf_get_key_for_language('hwcf_custom_message');
-
-	if (isset($data['hwcf'][$lang_key])) {
-		$data['hwcf'][$lang_key] = $data['hwcf'][$lang_key];
-	}
-
 	$overridePriceTag_lang_key = hwcf_get_key_for_language('overridePriceTag');
-	if (isset($data['hwcf'][$overridePriceTag_lang_key])) {
-		$data['hwcf'][$overridePriceTag_lang_key] = $data['hwcf'][$overridePriceTag_lang_key];
-	}
 
-	//sanitize input
-	foreach ($data as $key => $value) {
-		if ($key === 'hwcf_custom_message') {
-			$data[$key] = stripslashes_deep($value);
-		} elseif (is_string($value)) {
-			$data[$key] = sanitize_text_field($value);
-		} else {
-			array_map('sanitize_text_field', $data[$key]);
+	// Sanitize the hwcf array fields properly
+	if (isset($data['hwcf']) && is_array($data['hwcf'])) {
+		foreach ($data['hwcf'] as $key => $value) {
+			// Allow HTML in custom message fields - use wp_kses_post for safe HTML
+			if ($key === 'hwcf_custom_message' || $key === $lang_key) {
+				$data['hwcf'][$key] = wp_kses_post(stripslashes_deep($value));
+			} elseif (is_string($value)) {
+				$data['hwcf'][$key] = sanitize_text_field($value);
+			} elseif (is_array($value)) {
+				$data['hwcf'][$key] = array_map('sanitize_text_field', $value);
+			}
 		}
 	}
 
-
+	// Sanitize other top-level fields
+	if (isset($data['edited_hwcf'])) {
+		$data['edited_hwcf'] = sanitize_text_field($data['edited_hwcf']);
+	}
 
 	if (isset($data['edited_hwcf'])) {
-		$settings_id                 = $data['edited_hwcf'];
+		$settings_id = $data['edited_hwcf'];
 
-		$old_data = $settings_data[$settings_id];
-		$data['hwcf'] = array_merge($old_data, $data['hwcf']);
+		// Check if the settings ID exists before merging
+		if (isset($settings_data[$settings_id])) {
+			$old_data = $settings_data[$settings_id];
+			$data['hwcf'] = array_merge($old_data, $data['hwcf']);
+		}
 
 		$settings_data[$settings_id] = $data['hwcf'];
-		$status                      = update_option('hwcf_settings_data', $settings_data);
+		$status = update_option('hwcf_settings_data', $settings_data);
 	} else {
 		$settings_id                 = (int)get_option('hwcf_settings_ids_increament') + 1;
 		$data['hwcf']['ID']         = $settings_id;
@@ -223,7 +233,68 @@ function hwcf_update_hwcf($data = []) {
 		$update_id                   = update_option('hwcf_settings_ids_increament', $settings_id);
 	}
 
+	// Clear caches to ensure settings take effect immediately
+	hwcf_clear_caches();
+
 	return $settings_id;
+}
+
+/**
+ * Clear various caches after settings update.
+ * Supports popular caching plugins and server-level caches.
+ */
+function hwcf_clear_caches() {
+	// WordPress object cache
+	wp_cache_flush();
+	
+	// LiteSpeed Cache
+	if ( class_exists( 'LiteSpeed_Cache_API' ) ) {
+		LiteSpeed_Cache_API::purge_all();
+	} elseif ( has_action( 'litespeed_purge_all' ) ) {
+		do_action( 'litespeed_purge_all' );
+	}
+	
+	// WP Super Cache
+	if ( function_exists( 'wp_cache_clear_cache' ) ) {
+		wp_cache_clear_cache();
+	}
+	
+	// W3 Total Cache
+	if ( function_exists( 'w3tc_flush_all' ) ) {
+		w3tc_flush_all();
+	}
+	
+	// WP Rocket
+	if ( function_exists( 'rocket_clean_domain' ) ) {
+		rocket_clean_domain();
+	}
+	
+	// WP Fastest Cache
+	if ( function_exists( 'wpfc_clear_all_cache' ) ) {
+		wpfc_clear_all_cache();
+	} elseif ( isset( $GLOBALS['wp_fastest_cache'] ) && method_exists( $GLOBALS['wp_fastest_cache'], 'deleteCache' ) ) {
+		$GLOBALS['wp_fastest_cache']->deleteCache();
+	}
+	
+	// Autoptimize
+	if ( class_exists( 'autoptimizeCache' ) ) {
+		autoptimizeCache::clearall();
+	}
+	
+	// SG Optimizer (SiteGround)
+	if ( function_exists( 'sg_cachepress_purge_cache' ) ) {
+		sg_cachepress_purge_cache();
+	}
+	
+	// Cloudflare (via plugin)
+	if ( class_exists( 'CF\WordPress\Hooks' ) ) {
+		do_action( 'cloudflare_purge_everything' );
+	}
+	
+	// OPcache
+	if ( function_exists( 'opcache_reset' ) ) {
+		@opcache_reset();
+	}
 }
 
 /**
@@ -283,7 +354,7 @@ function hwcf_delete_hwcf_filter_removable_query_args(array $args) {
  * @param string[] $args Array of removable query arguments.
  * @return string[] Updated array of removable query arguments.
  */
-function taxopress_deleted_hwcf_filter_removable_query_args(array $args) {
+function hwcf_deleted_filter_removable_query_args(array $args) {
 	return array_merge($args, [
 		'deleted_hwcf',
 	]);
@@ -332,47 +403,48 @@ function hwcf_admin_notices_helper($message = '', $success = true) {
 }
 
 
-		/**
-         * Translate a given string using popular WordPress translation plugins.
-         *
-         * @param string $string The string to be translated.
-         * @return string Translated string.
-         */
-        function hwcf_translate_string($string) {
-            if (empty(trim($string))) {
-                return $string; // Return as is if the string is empty
-            }
+/**
+ * Translate a given string using popular WordPress translation plugins.
+ *
+ * @param string $string The string to be translated.
+ * @return string Translated string.
+ */
+function hwcf_translate_string($string) {
+	if (empty(trim($string))) {
+		return $string; // Return as is if the string is empty
+	}
 
-            $text_domain = 'hide-cart-functions';
+	$text_domain = 'hide-cart-functions';
 
-            // WPML Translation
-            if (function_exists('apply_filters')) {
+	// WPML Translation - check for WPML-specific function
+	if (defined('ICL_SITEPRESS_VERSION') && function_exists('icl_t')) {
+		$string = apply_filters('wpml_translate_single_string', $string, $text_domain, 'HWCF Text');
+	}
+	// Polylang Translation
+	elseif (function_exists('pll__')) {
+		$string = pll__($string);
+	}
+	// TranslatePress - check for specific TranslatePress function
+	elseif (class_exists('TRP_Translate_Press')) {
+		// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText, WordPress.WP.I18n.NonSingularStringLiteralDomain -- Dynamic translation
+		$string = __($string, $text_domain);
+	}
+	// Weglot
+	elseif (function_exists('weglot_translate_text')) {
+		$string = weglot_translate_text($string);
+	}
+	// GTranslate
+	elseif (function_exists('gt_translate')) {
+		$string = gt_translate($string, $text_domain);
+	}
+	// Default WordPress translation (also works with Loco Translate)
+	else {
+		// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText, WordPress.WP.I18n.NonSingularStringLiteralDomain -- Dynamic translation
+		$string = __($string, $text_domain);
+	}
 
-                $string = apply_filters('wpml_translate_single_string', $string, $text_domain, 'HWCF Text');
-            }
-            // Polylang Translation
-            elseif (function_exists('pll__')) {
-                $string = pll__($string);
-            }
-            // TranslatePress
-            elseif (function_exists('translate')) {
-                $string = translate($string, $text_domain);
-            }
-            // Loco Translate
-            elseif (class_exists('Loco_gettext')) {
-                $string = __($string, $text_domain);
-            }
-            // Weglot
-            elseif (function_exists('weglot_translate_text')) {
-                $string = weglot_translate_text($string);
-            }
-            // GTranslate
-            elseif (function_exists('gt_translate')) {
-                $string = gt_translate($string, $text_domain);
-            }
-
-            return $string;
-        }
+	return $string;
+}
 
 
 if (!function_exists('HWCF_Fix_Double_Selection')) {
@@ -385,7 +457,7 @@ if (!function_exists('HWCF_Fix_Double_Selection')) {
 
 
 		foreach ($hide_rules as $key => $rule) {
-			if ($rule['loggedinUsers'] == '1,2') {
+			if (isset($rule['loggedinUsers']) && $rule['loggedinUsers'] == '1,2') {
 				$hide_rules[$key]['loggedinUsers'] = '';
 			}
 		}

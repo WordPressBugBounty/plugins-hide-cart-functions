@@ -74,8 +74,8 @@ msgid "Manage Settings"
 msgstr "Gérer les paramètres"
 
 #: admin/hwcf-admin.php:363
-msgid "All Settings"
-msgstr "Tous les paramètres"
+msgid "Saved Settings"
+msgstr "Enregistrés"
 
 #: admin/hwcf-admin.php:378
 msgid "Edit Settings"
@@ -351,3 +351,131 @@ msgstr "Paramètres supprimés avec succès."
 
 #~ msgid "Hide WooCommerce Functions"
 #~ msgstr "Masquer les fonctions WooCommerce"
+
+#: admin/hwcf-admin.php:508
+msgid "Success!"
+msgstr "Succès!"
+
+#: admin/hwcf-admin.php:509
+msgid "Settings saved."
+msgstr "Paramètres enregistrés."
+
+#: admin/hwcf-admin.php
+msgid "Store-Wide Settings"
+msgstr "Paramètres de la boutique"
+
+#: admin/hwcf-admin.php
+msgid "Cripple Bots"
+msgstr "Bloquer les bots"
+
+#: admin/hwcf-admin.php
+msgid "Require a valid cart session before checkout."
+msgstr "Exiger une session de panier valide avant le paiement."
+
+#: admin/hwcf-admin.php
+msgid "Blocks direct POST attacks by card test bots. Real customers continue to add products to their cart through normal browsing. Orders without a valid session are rejected before reaching the payment gateway."
+msgstr "Bloque les attaques POST directes des bots de test de cartes. Les vrais clients continuent d'ajouter des produits à leur panier en naviguant normalement. Les commandes sans session valide sont rejetées avant d'atteindre la passerelle de paiement."
+
+#: admin/hwcf-admin.php
+msgid "Disable Purchases"
+msgstr "Désactiver les achats"
+
+#: admin/hwcf-admin.php
+msgid "Check this option to completely block code-activated purchases."
+msgstr "Cochez cette option pour bloquer complètement les achats activés par code."
+
+#: admin/hwcf-admin.php
+msgid "Completely prevents cart bots from placing orders via direct POST requests, as well as customers. Best used temporarily as a nuclear option."
+msgstr "Empêche complètement les bots de panier et les clients de passer des commandes via des requêtes POST directes. À utiliser temporairement comme option nucléaire."
+
+#: admin/hwcf-admin.php
+msgid "Delete Data on Uninstall"
+msgstr "Supprimer les données lors de la désinstallation"
+
+#: admin/hwcf-admin.php
+msgid "WARNING:"
+msgstr "AVERTISSEMENT :"
+
+#: admin/hwcf-admin.php
+msgid "All plugin settings will be permanently deleted if this plugin is uninstalled."
+msgstr "Tous les paramètres du plugin seront définitivement supprimés si ce plugin est désinstallé."
+
+#: admin/hwcf-admin.php
+msgid "Support"
+msgstr "Support"
+
+#: admin/hwcf-admin.php
+msgid "Leave Review"
+msgstr "Laisser un avis"
+
+#: admin/hwcf-admin.php
+msgid "This plugin is free, but your donation aids orphans:"
+msgstr "Ce plugin est gratuit, mais votre don aide les orphelins :"
+
+#: admin/hwcf-admin.php
+msgid "I Want to Help"
+msgstr "Je veux aider"
+
+#: admin/hwcf-admin.php
+msgid "Deleted!"
+msgstr "Supprimé !"
+
+#: admin/hwcf-admin.php
+msgid "Settings deleted."
+msgstr "Paramètres supprimés."
+
+#: admin/hwcf-table.php
+msgid "Function Rule"
+msgstr "Règle de fonction"
+
+#: admin/hwcf-admin.php
+msgid "Show Login Button"
+msgstr "Afficher le bouton de connexion"
+
+#: admin/hwcf-admin.php
+msgid "Display a login button in place of the Add to Cart button."
+msgstr "Affiche un bouton de connexion à la place du bouton Ajouter au panier."
+
+#: admin/hwcf-admin.php
+msgid "Works best with Guests Only enabled. Shows a login button that redirects users to log in, then returns them to the product page."
+msgstr "Fonctionne mieux avec Invités uniquement activé. Affiche un bouton de connexion qui redirige les utilisateurs vers la connexion, puis les renvoie à la page du produit."
+
+#: admin/hwcf-admin.php
+msgid "Login Button Text"
+msgstr "Texte du bouton de connexion"
+
+#: admin/hwcf-admin.php
+msgid "Login to See Prices"
+msgstr "Connectez-vous pour voir les prix"
+
+#: admin/hwcf-admin.php
+msgid "Custom text for the login button. Leave empty for default."
+msgstr "Texte personnalisé pour le bouton de connexion. Laisser vide pour le défaut."
+
+#: admin/hwcf-admin.php
+msgid "Login Return URL"
+msgstr "URL de retour après connexion"
+
+#: admin/hwcf-admin.php
+msgid "Current Product Page"
+msgstr "Page produit actuelle"
+
+#: admin/hwcf-admin.php
+msgid "Shop Page"
+msgstr "Page boutique"
+
+#: admin/hwcf-admin.php
+msgid "Home Page"
+msgstr "Page d'accueil"
+
+#: admin/hwcf-admin.php
+msgid "My Account Page"
+msgstr "Mon compte"
+
+#: admin/hwcf-admin.php
+msgid "Choose where customers are redirected after logging in."
+msgstr "Choisissez où les clients sont redirigés après la connexion."
+
+#: hide-cart-functions.php
+msgid "Invalid checkout session. Please add items to your cart and try again."
+msgstr "Session de paiement invalide. Veuillez ajouter des articles à votre panier et réessayer."

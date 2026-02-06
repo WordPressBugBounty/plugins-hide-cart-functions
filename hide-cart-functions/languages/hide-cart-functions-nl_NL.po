@@ -1,273 +1,239 @@
+# Dutch translation for Hide Cart Functions plugin
+# Copyright (C) 2022-2025 Artios Media
+# This file is distributed under the GNU General Public License v3.0.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Hide Cart Functions\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: Hide Cart Functions 1.2.11\n"
+"Report-Msgid-Bugs-To: contact@artiosmedia.com\n"
 "POT-Creation-Date: 2023-10-10 01:05-0400\n"
-"PO-Revision-Date: 2023-10-10 01:26-0400\n"
+"PO-Revision-Date: 2025-01-01 12:00+0100\n"
 "Last-Translator: \n"
-"Language-Team: \n"
-"Language: pt\n"
+"Language-Team: Dutch\n"
+"Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4\n"
-"X-Loco-Version: 2.5.7; wp-5.9.2\n"
-"X-Domain: hide-cart-functions\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Claude AI\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_attr;esc_attr__;esc_attr_e\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: admin/hwcf-admin.php:154
 msgid "Search Product"
-msgstr "Pesquisar Produto"
+msgstr "Zoek product"
 
 #: admin/hwcf-admin.php:155
 msgid "Select category"
-msgstr "Selecione a categoria"
+msgstr "Kies categorie"
 
 #: admin/hwcf-admin.php:156
 msgid "No results found."
-msgstr "Nenhum resultado encontrado."
+msgstr "Geen resultaten."
 
 #: admin/hwcf-admin.php:177 admin/hwcf-admin.php:178
 msgid "Hide Functions"
-msgstr "Ocultar funções"
+msgstr "Functies verbergen"
 
 #: admin/hwcf-admin.php:200
 msgid "Settings"
-msgstr "Opções"
+msgstr "Instellingen"
 
 #: admin/hwcf-admin.php:214
 msgid "Donation for Homeless"
-msgstr "Doação para moradores de rua"
+msgstr "Donatie voor daklozen"
 
 #: admin/hwcf-admin.php:238
 #, php-format
 msgid "More information about %s"
-msgstr "Mais informações sobre %s"
+msgstr "Meer informatie over %s"
 
 #: admin/hwcf-admin.php:238
 msgid "View Details"
-msgstr "Ver Detalhes"
+msgstr "Details bekijken"
 
 #: admin/hwcf-admin.php:249
 msgid "Number of items per page"
-msgstr "Número de itens por página"
+msgstr "Aantal items per pagina"
 
 #: admin/hwcf-admin.php:280 admin/hwcf-table.php:14 admin/hwcf-table.php:15
 msgid "Hide Cart Functions"
-msgstr "Ocultar funções do carrinho"
+msgstr "Winkelwagen functies verbergen"
 
 #: admin/hwcf-admin.php:283
 msgid "Add New"
-msgstr "Adicionar novo"
+msgstr "Nieuwe toevoegen"
 
 #: admin/hwcf-admin.php:291
 #, php-format
 msgid "Search results for %s"
-msgstr "Resultados da pesquisa para %s"
+msgstr "Zoekresultaten voor %s"
 
 #: admin/hwcf-admin.php:304
 msgid "Search Result"
-msgstr "Resultado da pesquisa"
+msgstr "Zoekresultaat"
 
 #: admin/hwcf-admin.php:363
 msgid "Manage Settings"
-msgstr "Gerenciar configurações"
+msgstr "Instellingen beheren"
 
 #: admin/hwcf-admin.php:363
 msgid "Saved Settings"
-msgstr "Guardados"
+msgstr "Opgeslagen"
 
 #: admin/hwcf-admin.php:378
 msgid "Edit Settings"
-msgstr "Editar Configurações"
+msgstr "Instellingen bewerken"
 
 #: admin/hwcf-admin.php:380
 msgid "Existing Rule"
-msgstr "Regra Existente"
+msgstr "Bestaande regel"
 
 #: admin/hwcf-admin.php:384
 msgid "Add New Settings"
-msgstr "Adicionar novas configurações"
+msgstr "Nieuwe instellingen toevoegen"
 
 #: admin/hwcf-admin.php:396
 msgid "Disable Settings"
-msgstr "Desativar configurações"
+msgstr "Instellingen uitschakelen"
 
 #: admin/hwcf-admin.php:400
-msgid ""
-"Check this option to disable this rule. Leave unchecked to apply the "
-"selected settings."
-msgstr ""
-"Marque esta opção para desabilitar esta regra. Deixe desmarcado para aplicar "
-"as configurações selecionadas."
+msgid "Check this option to disable this rule. Leave unchecked to apply the selected settings."
+msgstr "Vink aan om deze regel uit te schakelen. Laat leeg om instellingen toe te passen."
 
 #: admin/hwcf-admin.php:408
 msgid "Rule enabled"
-msgstr "Regra ativada"
+msgstr "Regel actief"
 
 #: admin/hwcf-admin.php:411
 msgid "Guests Only"
-msgstr "Apenas convidados"
+msgstr "Alleen gasten"
 
 #: admin/hwcf-admin.php:415
 msgid "Logged in Users --> Leave both unchecked for ALL users."
-msgstr "Usuários logados -> Deixe ambos desmarcados para TODOS os usuários."
+msgstr "Ingelogde gebruikers --> Laat beide leeg voor ALLE gebruikers."
 
 #: admin/hwcf-admin.php:427
 msgid "Rule Title"
-msgstr "Título da regra"
+msgstr "Regeltitel"
 
 #: admin/hwcf-admin.php:433
 msgid "Create short title for rule for display in the settings table."
-msgstr ""
-"Crie um título curto para a regra a ser exibida na tabela de configurações."
+msgstr "Maak een korte titel voor weergave in de instellingentabel."
 
 #: admin/hwcf-admin.php:440
 msgid "Hide Quantity"
-msgstr "Ocultar quantidade"
+msgstr "Aantal verbergen"
 
 #: admin/hwcf-admin.php:444
-msgid ""
-"Check this option to hide the default cart \"Quantity\" product function."
-msgstr ""
-"Marque esta opção para ocultar a função de produto \"Quantidade\" do "
-"carrinho padrão."
+msgid "Check this option to hide the default cart \"Quantity\" product function."
+msgstr "Vink aan om de standaard \"Aantal\" functie te verbergen."
 
 #: admin/hwcf-admin.php:449
 msgid "Hide Add to Cart"
-msgstr "Ocultar Adicionar ao carrinho"
+msgstr "In winkelwagen verbergen"
 
 #: admin/hwcf-admin.php:453
 msgid "Check this option to hide the default cart \"Add to Cart\" button."
-msgstr ""
-"Marque esta opção para ocultar o botão padrão \"Adicionar ao carrinho\" do "
-"carrinho."
+msgstr "Vink aan om de standaard \"In winkelwagen\" knop te verbergen."
 
 #: admin/hwcf-admin.php:458
 msgid "Hide Price"
-msgstr "Ocultar preço"
+msgstr "Prijs verbergen"
 
 #: admin/hwcf-admin.php:462
 msgid "Check this option to hide the default cart \"Price\" displayed."
-msgstr "Marque esta opção para ocultar o carrinho padrão \"Preço\" exibido."
+msgstr "Vink aan om de standaard weergegeven \"Prijs\" te verbergen."
 
 #: admin/hwcf-admin.php:468
 msgid "Override Price Tag"
-msgstr "Substituir etiqueta de preço"
+msgstr "Prijslabel overschrijven"
 
 #: admin/hwcf-admin.php:476
 #, php-format
-msgid ""
-"This text will override the price tag. Use the %s to keep showing price in "
-"the tag with other text."
-msgstr ""
-"Este texto substituirá a etiqueta de preço. Use %s para continuar mostrando "
-"o preço na tag com outro texto."
+msgid "This text will override the price tag. Use the %s to keep showing price in the tag with other text."
+msgstr "Deze tekst vervangt het prijslabel. Gebruik %s om de prijs met andere tekst te tonen."
 
 #: admin/hwcf-admin.php:486
 msgid "Hide Options"
-msgstr "Ocultar opções"
+msgstr "Opties verbergen"
 
 #: admin/hwcf-admin.php:490
-msgid ""
-"Check this option to hide the default cart \"Options\" dropdown selector."
-msgstr ""
-"Marque esta opção para ocultar o seletor suspenso \"Opções\" do carrinho "
-"padrão."
+msgid "Check this option to hide the default cart \"Options\" dropdown selector."
+msgstr "Vink aan om de standaard \"Opties\" dropdown te verbergen."
 
 #: admin/hwcf-admin.php:497
 msgid "Hide Custom Element"
-msgstr "Ocultar elemento personalizado"
+msgstr "Aangepast element verbergen"
 
 #: admin/hwcf-admin.php:503
 msgid "Enter specific IDs or classes to hide a custom element."
-msgstr ""
-"Insira IDs ou classes específicas para ocultar um elemento personalizado."
+msgstr "Voer specifieke ID's of classes in om een element te verbergen."
 
 #: admin/hwcf-admin.php:506
-msgid ""
-"Separate multiple values by comma (examples: .custom-item-one, .custom-item-"
-"two, #new-item-id)."
-msgstr ""
-"Separe vários valores por vírgula (exemplos: .custom-item-one, .custom-item-"
-"two, #new-item-id)."
+msgid "Separate multiple values by comma (examples: .custom-item-one, .custom-item-two, #new-item-id)."
+msgstr "Scheid meerdere waarden met komma's (bijv: .item-een, .item-twee, #nieuw-id)."
 
 #: admin/hwcf-admin.php:513
 msgid "Custom Message"
-msgstr "Mensagem personalizada"
+msgstr "Aangepast bericht"
 
 #: admin/hwcf-admin.php:526
-msgid ""
-"Enter a custom message to be added above or below the \"Short product "
-"description\""
-msgstr ""
-"Insira uma mensagem personalizada a ser adicionada acima ou abaixo da "
-"\"Breve descrição do produto\""
+msgid "Enter a custom message to be added above or below the \"Short product description\""
+msgstr "Voer een bericht in voor boven of onder de \"Korte productomschrijving\""
 
 #: admin/hwcf-admin.php:533
 msgid "Custom Message Position"
-msgstr "Posição da mensagem personalizada"
+msgstr "Berichtpositie"
 
 #: admin/hwcf-admin.php:539
 msgid "Above Short product description"
-msgstr "Acima Breve descrição do produto"
+msgstr "Boven korte productomschrijving"
 
 #: admin/hwcf-admin.php:540
 msgid "Below Short product description."
-msgstr "Abaixo breve descrição do produto."
+msgstr "Onder korte productomschrijving."
 
 #: admin/hwcf-admin.php:552
 msgid "Select position where Custom Message should be inserted."
-msgstr "Selecione a posição onde a Mensagem Personalizada deve ser inserida."
+msgstr "Kies de positie voor het aangepaste bericht."
 
 #: admin/hwcf-admin.php:562 admin/hwcf-table.php:72
 msgid "Selected Category"
-msgstr "Categoria selecionada"
+msgstr "Geselecteerde categorie"
 
 #: admin/hwcf-admin.php:583
-msgid ""
-"Some browsers, hold the \"Ctrl\" key while clicking to select multiple or to "
-"deselect entirely."
-msgstr ""
-"Alguns navegadores mantêm pressionada a tecla “Ctrl” enquanto clicam para "
-"selecionar vários ou desmarcar totalmente."
+msgid "Some browsers, hold the \"Ctrl\" key while clicking to select multiple or to deselect entirely."
+msgstr "In sommige browsers, houd \"Ctrl\" ingedrukt om meerdere te selecteren of deselecteren."
 
 #: admin/hwcf-admin.php:591 admin/hwcf-table.php:73
 msgid "Product IDs"
-msgstr "IDs do produto"
+msgstr "Product-ID's"
 
 #: admin/hwcf-admin.php:595
-msgid ""
-"Separate multiple values by comma (3443, 5567, 3456) or leave empty to apply "
-"this rule to all products."
-msgstr ""
-"Separe vários valores por vírgula (3443, 5567, 3456) ou deixe em branco para "
-"aplicar esta regra a todos os produtos."
+msgid "Separate multiple values by comma (3443, 5567, 3456) or leave empty to apply this rule to all products."
+msgstr "Scheid waarden met komma's (3443, 5567, 3456) of laat leeg voor alle producten."
 
 #: admin/hwcf-admin.php:601
 msgid "Search Products"
-msgstr "Procurar produtos"
+msgstr "Producten zoeken"
 
 #: admin/hwcf-admin.php:606
-msgid ""
-"Search and select products with 3 letter minimum. Works in combination with "
-"the Product ID field."
-msgstr ""
-"Pesquise e selecione produtos com no mínimo 3 letras. Funciona em combinação "
-"com o campo ID do produto."
+msgid "Search and select products with 3 letter minimum. Works in combination with the Product ID field."
+msgstr "Zoek en selecteer producten met min. 3 letters. Werkt samen met het Product-ID veld."
 
 #: admin/hwcf-admin.php:640
 msgid "Save Settings"
-msgstr "Salvar configurações"
+msgstr "Instellingen opslaan"
 
 #: admin/hwcf-admin.php:643
 msgid "Add Settings"
-msgstr "Adicionar configurações"
+msgstr "Instellingen toevoegen"
 
 #: admin/hwcf-table.php:66
 msgid "Title"
-msgstr "Título"
+msgstr "Titel"
 
 #: admin/hwcf-table.php:67
 msgid "Status"
@@ -275,130 +241,129 @@ msgstr "Status"
 
 #: admin/hwcf-table.php:68
 msgid "Quantity"
-msgstr "Quantidade"
+msgstr "Aantal"
 
 #: admin/hwcf-table.php:69
 msgid "Add to Cart"
-msgstr "Adicionar ao Carrinho"
+msgstr "In winkelwagen"
 
 #: admin/hwcf-table.php:70
 msgid "Price"
-msgstr "Preço"
+msgstr "Prijs"
 
 #: admin/hwcf-table.php:71
 msgid "Options"
-msgstr "Opções"
+msgstr "Opties"
 
 #: admin/hwcf-table.php:96
 msgid "No Item available."
-msgstr "Nenhum item disponível."
+msgstr "Geen item beschikbaar."
 
 #: admin/hwcf-table.php:269
 msgid "Edit"
-msgstr "Editar"
+msgstr "Bewerken"
 
 #: admin/hwcf-table.php:280
 msgid "Delete"
-msgstr "Excluir"
+msgstr "Verwijderen"
 
 #: admin/hwcf-table.php:321 admin/hwcf-table.php:341 admin/hwcf-table.php:359
 #: admin/hwcf-table.php:377 admin/hwcf-table.php:395
 msgid "Disabled"
-msgstr "Desabilitado"
+msgstr "Uitgeschakeld"
 
 #: admin/hwcf-table.php:323 admin/hwcf-table.php:339 admin/hwcf-table.php:357
 #: admin/hwcf-table.php:375 admin/hwcf-table.php:393
 msgid "Enabled"
-msgstr "Habilitado"
+msgstr "Ingeschakeld"
 
 #: admin/hwcf-table.php:459
 msgid "Delete all database entries if the plugin is deactivated?"
-msgstr ""
-"Excluir todas as entradas do banco de dados se o plugin estiver desativado?"
+msgstr "Alle database-items verwijderen bij deactivering?"
 
 #: inc/utilities-functions.php:210
 msgid "Settings Updated Successfully."
-msgstr "Configurações atualizadas com sucesso."
+msgstr "Instellingen succesvol bijgewerkt."
 
 #: inc/utilities-functions.php:219
 msgid "Settings Successfully Deleted."
-msgstr "Configurações excluídas com sucesso."
+msgstr "Instellingen succesvol verwijderd."
 
 #: admin/hwcf-admin.php:508
 msgid "Success!"
-msgstr "Sucesso!"
+msgstr "Gelukt!"
 
 #: admin/hwcf-admin.php:509
 msgid "Settings saved."
-msgstr "Configurações salvas."
+msgstr "Instellingen opgeslagen."
 
 #: admin/hwcf-admin.php
 msgid "Store-Wide Settings"
-msgstr "Configurações da loja"
+msgstr "Winkel-brede instellingen"
 
 #: admin/hwcf-admin.php
 msgid "Cripple Bots"
-msgstr "Bloquear bots"
+msgstr "Bots blokkeren"
 
 #: admin/hwcf-admin.php
 msgid "Require a valid cart session before checkout."
-msgstr "Requer uma sessão de carrinho válida antes do checkout."
+msgstr "Vereist een geldige winkelmand-sessie vóór afrekenen."
 
 #: admin/hwcf-admin.php
 msgid "Blocks direct POST attacks by card test bots. Real customers continue to add products to their cart through normal browsing. Orders without a valid session are rejected before reaching the payment gateway."
-msgstr "Bloqueia ataques POST diretos de bots de teste de cartões. Os clientes reais continuam a adicionar produtos ao carrinho através de navegação normal. Encomendas sem sessão válida são rejeitadas antes de chegar ao gateway de pagamento."
+msgstr "Blokkeert directe POST-aanvallen van kaarttest-bots. Echte klanten blijven producten toevoegen aan hun winkelwagen via normaal browsen. Bestellingen zonder geldige sessie worden afgewezen voordat ze de betalingsgateway bereiken."
 
 #: admin/hwcf-admin.php
 msgid "Disable Purchases"
-msgstr "Desativar compras"
+msgstr "Aankopen uitschakelen"
 
 #: admin/hwcf-admin.php
 msgid "Check this option to completely block code-activated purchases."
-msgstr "Marque esta opção para bloquear completamente as compras ativadas por código."
+msgstr "Selecteer deze optie om code-geactiveerde aankopen volledig te blokkeren."
 
 #: admin/hwcf-admin.php
 msgid "Completely prevents cart bots from placing orders via direct POST requests, as well as customers. Best used temporarily as a nuclear option."
-msgstr "Impede completamente que bots de carrinho e clientes façam encomendas através de pedidos POST diretos. Melhor usar temporariamente como opção nuclear."
+msgstr "Voorkomt volledig dat winkelwagen-bots en klanten bestellingen plaatsen via directe POST-verzoeken. Het beste tijdelijk te gebruiken als nucleaire optie."
 
 #: admin/hwcf-admin.php
 msgid "Delete Data on Uninstall"
-msgstr "Eliminar dados ao desinstalar"
+msgstr "Gegevens verwijderen bij deïnstallatie"
 
 #: admin/hwcf-admin.php
 msgid "WARNING:"
-msgstr "AVISO:"
+msgstr "WAARSCHUWING:"
 
 #: admin/hwcf-admin.php
 msgid "All plugin settings will be permanently deleted if this plugin is uninstalled."
-msgstr "Todas as configurações do plugin serão permanentemente eliminadas se este plugin for desinstalado."
+msgstr "Alle plugin-instellingen worden permanent verwijderd als deze plugin wordt verwijderd."
 
 #: admin/hwcf-admin.php
 msgid "Support"
-msgstr "Suporte"
+msgstr "Ondersteuning"
 
 #: admin/hwcf-admin.php
 msgid "Leave Review"
-msgstr "Deixar avaliação"
+msgstr "Beoordeling achterlaten"
 
 #: admin/hwcf-admin.php
 msgid "This plugin is free, but your donation aids orphans:"
-msgstr "Este plugin é gratuito, mas a sua doação ajuda órfãos:"
+msgstr "Deze plugin is gratis, maar uw donatie helpt wezen:"
 
 #: admin/hwcf-admin.php
 msgid "I Want to Help"
-msgstr "Quero ajudar"
+msgstr "Ik wil helpen"
 
 #: admin/hwcf-admin.php
 msgid "Deleted!"
-msgstr "Eliminado!"
+msgstr "Verwijderd!"
 
 #: admin/hwcf-admin.php
 msgid "Settings deleted."
-msgstr "Configurações eliminadas."
+msgstr "Instellingen verwijderd."
 
 #: admin/hwcf-table.php
 msgid "Function Rule"
-msgstr "Regra de função"
+msgstr "Functieregel"
 
 #: admin/hwcf-admin.php
 msgid "Show Login Button"

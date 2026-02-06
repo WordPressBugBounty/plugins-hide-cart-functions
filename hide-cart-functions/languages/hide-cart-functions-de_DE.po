@@ -1,0 +1,418 @@
+# German translation for Hide Cart Functions plugin
+# Copyright (C) 2022-2025 Artios Media
+# This file is distributed under the GNU General Public License v3.0.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Hide Cart Functions 1.2.10\n"
+"Report-Msgid-Bugs-To: contact@artiosmedia.com\n"
+"POT-Creation-Date: 2023-10-10 01:05-0400\n"
+"PO-Revision-Date: 2025-01-01 12:00+0100\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Claude AI\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_attr;esc_attr__;esc_attr_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/hwcf-admin.php:154
+msgid "Search Product"
+msgstr "Produkt suchen"
+
+#: admin/hwcf-admin.php:155
+msgid "Select category"
+msgstr "Kategorie auswählen"
+
+#: admin/hwcf-admin.php:156
+msgid "No results found."
+msgstr "Keine Ergebnisse gefunden."
+
+#: admin/hwcf-admin.php:177 admin/hwcf-admin.php:178
+msgid "Hide Functions"
+msgstr "Funktionen ausblenden"
+
+#: admin/hwcf-admin.php:200
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: admin/hwcf-admin.php:214
+msgid "Donation for Homeless"
+msgstr "Spende für Obdachlose"
+
+#: admin/hwcf-admin.php:238
+#, php-format
+msgid "More information about %s"
+msgstr "Weitere Informationen über %s"
+
+#: admin/hwcf-admin.php:238
+msgid "View Details"
+msgstr "Details anzeigen"
+
+#: admin/hwcf-admin.php:249
+msgid "Number of items per page"
+msgstr "Anzahl der Einträge pro Seite"
+
+#: admin/hwcf-admin.php:280 admin/hwcf-table.php:14 admin/hwcf-table.php:15
+msgid "Hide Cart Functions"
+msgstr "Warenkorb-Funktionen ausblenden"
+
+#: admin/hwcf-admin.php:283
+msgid "Add New"
+msgstr "Neu hinzufügen"
+
+#: admin/hwcf-admin.php:291
+#, php-format
+msgid "Search results for %s"
+msgstr "Suchergebnisse für %s"
+
+#: admin/hwcf-admin.php:304
+msgid "Search Result"
+msgstr "Suchergebnis"
+
+#: admin/hwcf-admin.php:363
+msgid "Manage Settings"
+msgstr "Einstellungen verwalten"
+
+#: admin/hwcf-admin.php:363
+msgid "Saved Settings"
+msgstr "Gespeichert"
+
+#: admin/hwcf-admin.php:378
+msgid "Edit Settings"
+msgstr "Einstellungen bearbeiten"
+
+#: admin/hwcf-admin.php:380
+msgid "Existing Rule"
+msgstr "Bestehende Regel"
+
+#: admin/hwcf-admin.php:384
+msgid "Add New Settings"
+msgstr "Neue Einstellungen hinzufügen"
+
+#: admin/hwcf-admin.php:396
+msgid "Disable Settings"
+msgstr "Einstellungen deaktivieren"
+
+#: admin/hwcf-admin.php:400
+msgid "Check this option to disable this rule. Leave unchecked to apply the selected settings."
+msgstr "Aktivieren Sie diese Option, um diese Regel zu deaktivieren. Lassen Sie sie deaktiviert, um die ausgewählten Einstellungen anzuwenden."
+
+#: admin/hwcf-admin.php:408
+msgid "Rule enabled"
+msgstr "Regel aktiviert"
+
+#: admin/hwcf-admin.php:411
+msgid "Guests Only"
+msgstr "Nur Gäste"
+
+#: admin/hwcf-admin.php:415
+msgid "Logged in Users --> Leave both unchecked for ALL users."
+msgstr "Angemeldete Benutzer --> Lassen Sie beide deaktiviert für ALLE Benutzer."
+
+#: admin/hwcf-admin.php:427
+msgid "Rule Title"
+msgstr "Regeltitel"
+
+#: admin/hwcf-admin.php:433
+msgid "Create short title for rule for display in the settings table."
+msgstr "Erstellen Sie einen kurzen Titel für die Regel zur Anzeige in der Einstellungstabelle."
+
+#: admin/hwcf-admin.php:440
+msgid "Hide Quantity"
+msgstr "Menge ausblenden"
+
+#: admin/hwcf-admin.php:444
+msgid "Check this option to hide the default cart \"Quantity\" product function."
+msgstr "Aktivieren Sie diese Option, um die Standard-Warenkorb-Funktion \"Menge\" auszublenden."
+
+#: admin/hwcf-admin.php:449
+msgid "Hide Add to Cart"
+msgstr "In den Warenkorb ausblenden"
+
+#: admin/hwcf-admin.php:453
+msgid "Check this option to hide the default cart \"Add to Cart\" button."
+msgstr "Aktivieren Sie diese Option, um den Standard-Button \"In den Warenkorb\" auszublenden."
+
+#: admin/hwcf-admin.php:458
+msgid "Hide Price"
+msgstr "Preis ausblenden"
+
+#: admin/hwcf-admin.php:462
+msgid "Check this option to hide the default cart \"Price\" displayed."
+msgstr "Aktivieren Sie diese Option, um den angezeigten Standard-\"Preis\" auszublenden."
+
+#: admin/hwcf-admin.php:468
+msgid "Override Price Tag"
+msgstr "Preisschild überschreiben"
+
+#: admin/hwcf-admin.php:476
+#, php-format
+msgid "This text will override the price tag. Use the %s to keep showing price in the tag with other text."
+msgstr "Dieser Text ersetzt das Preisschild. Verwenden Sie %s, um den Preis zusammen mit anderem Text anzuzeigen."
+
+#: admin/hwcf-admin.php:486
+msgid "Hide Options"
+msgstr "Optionen ausblenden"
+
+#: admin/hwcf-admin.php:490
+msgid "Check this option to hide the default cart \"Options\" dropdown selector."
+msgstr "Aktivieren Sie diese Option, um das Standard-Dropdown-Menü \"Optionen\" auszublenden."
+
+#: admin/hwcf-admin.php:497
+msgid "Hide Custom Element"
+msgstr "Benutzerdefiniertes Element ausblenden"
+
+#: admin/hwcf-admin.php:503
+msgid "Enter specific IDs or classes to hide a custom element."
+msgstr "Geben Sie bestimmte IDs oder Klassen ein, um ein benutzerdefiniertes Element auszublenden."
+
+#: admin/hwcf-admin.php:506
+msgid "Separate multiple values by comma (examples: .custom-item-one, .custom-item-two, #new-item-id)."
+msgstr "Trennen Sie mehrere Werte durch Kommas (Beispiele: .custom-item-one, .custom-item-two, #new-item-id)."
+
+#: admin/hwcf-admin.php:513
+msgid "Custom Message"
+msgstr "Benutzerdefinierte Nachricht"
+
+#: admin/hwcf-admin.php:526
+msgid "Enter a custom message to be added above or below the \"Short product description\""
+msgstr "Geben Sie eine benutzerdefinierte Nachricht ein, die über oder unter der \"Kurzen Produktbeschreibung\" angezeigt werden soll"
+
+#: admin/hwcf-admin.php:533
+msgid "Custom Message Position"
+msgstr "Position der benutzerdefinierten Nachricht"
+
+#: admin/hwcf-admin.php:539
+msgid "Above Short product description"
+msgstr "Über der kurzen Produktbeschreibung"
+
+#: admin/hwcf-admin.php:540
+msgid "Below Short product description."
+msgstr "Unter der kurzen Produktbeschreibung."
+
+#: admin/hwcf-admin.php:552
+msgid "Select position where Custom Message should be inserted."
+msgstr "Wählen Sie die Position, an der die benutzerdefinierte Nachricht eingefügt werden soll."
+
+#: admin/hwcf-admin.php:562 admin/hwcf-table.php:72
+msgid "Selected Category"
+msgstr "Ausgewählte Kategorie"
+
+#: admin/hwcf-admin.php:583
+msgid "Some browsers, hold the \"Ctrl\" key while clicking to select multiple or to deselect entirely."
+msgstr "In einigen Browsern halten Sie die \"Strg\"-Taste gedrückt, während Sie klicken, um mehrere auszuwählen oder die Auswahl vollständig aufzuheben."
+
+#: admin/hwcf-admin.php:591 admin/hwcf-table.php:73
+msgid "Product IDs"
+msgstr "Produkt-IDs"
+
+#: admin/hwcf-admin.php:595
+msgid "Separate multiple values by comma (3443, 5567, 3456) or leave empty to apply this rule to all products."
+msgstr "Trennen Sie mehrere Werte durch Kommas (3443, 5567, 3456) oder lassen Sie das Feld leer, um diese Regel auf alle Produkte anzuwenden."
+
+#: admin/hwcf-admin.php:601
+msgid "Search Products"
+msgstr "Produkte suchen"
+
+#: admin/hwcf-admin.php:606
+msgid "Search and select products with 3 letter minimum. Works in combination with the Product ID field."
+msgstr "Suchen und wählen Sie Produkte mit mindestens 3 Buchstaben. Funktioniert in Kombination mit dem Produkt-ID-Feld."
+
+#: admin/hwcf-admin.php:640
+msgid "Save Settings"
+msgstr "Einstellungen speichern"
+
+#: admin/hwcf-admin.php:643
+msgid "Add Settings"
+msgstr "Einstellungen hinzufügen"
+
+#: admin/hwcf-table.php:66
+msgid "Title"
+msgstr "Titel"
+
+#: admin/hwcf-table.php:67
+msgid "Status"
+msgstr "Status"
+
+#: admin/hwcf-table.php:68
+msgid "Quantity"
+msgstr "Menge"
+
+#: admin/hwcf-table.php:69
+msgid "Add to Cart"
+msgstr "In den Warenkorb"
+
+#: admin/hwcf-table.php:70
+msgid "Price"
+msgstr "Preis"
+
+#: admin/hwcf-table.php:71
+msgid "Options"
+msgstr "Optionen"
+
+#: admin/hwcf-table.php:96
+msgid "No Item available."
+msgstr "Kein Eintrag verfügbar."
+
+#: admin/hwcf-table.php:269
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: admin/hwcf-table.php:280
+msgid "Delete"
+msgstr "Löschen"
+
+#: admin/hwcf-table.php:321 admin/hwcf-table.php:341 admin/hwcf-table.php:359
+#: admin/hwcf-table.php:377 admin/hwcf-table.php:395
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: admin/hwcf-table.php:323 admin/hwcf-table.php:339 admin/hwcf-table.php:357
+#: admin/hwcf-table.php:375 admin/hwcf-table.php:393
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: admin/hwcf-table.php:459
+msgid "Delete all database entries if the plugin is deactivated?"
+msgstr "Alle Datenbankeinträge löschen, wenn das Plugin deaktiviert wird?"
+
+#: inc/utilities-functions.php:210
+msgid "Settings Updated Successfully."
+msgstr "Einstellungen erfolgreich aktualisiert."
+
+#: inc/utilities-functions.php:219
+msgid "Settings Successfully Deleted."
+msgstr "Einstellungen erfolgreich gelöscht."
+
+#: admin/hwcf-admin.php:508
+msgid "Success!"
+msgstr "Erfolg!"
+
+#: admin/hwcf-admin.php:509
+msgid "Settings saved."
+msgstr "Einstellungen gespeichert."
+
+#: admin/hwcf-admin.php
+msgid "Store-Wide Settings"
+msgstr "Shop-weite Einstellungen"
+
+#: admin/hwcf-admin.php
+msgid "Cripple Bots"
+msgstr "Bots blockieren"
+
+#: admin/hwcf-admin.php
+msgid "Require a valid cart session before checkout."
+msgstr "Gültige Warenkorb-Sitzung vor dem Checkout erforderlich."
+
+#: admin/hwcf-admin.php
+msgid "Blocks direct POST attacks by card test bots. Real customers continue to add products to their cart through normal browsing. Orders without a valid session are rejected before reaching the payment gateway."
+msgstr "Blockiert direkte POST-Angriffe von Kartentestbots. Echte Kunden fügen weiterhin Produkte über normales Surfen in ihren Warenkorb hinzu. Bestellungen ohne gültige Sitzung werden abgelehnt, bevor sie das Zahlungsgateway erreichen."
+
+#: admin/hwcf-admin.php
+msgid "Disable Purchases"
+msgstr "Käufe deaktivieren"
+
+#: admin/hwcf-admin.php
+msgid "Check this option to completely block code-activated purchases."
+msgstr "Aktivieren Sie diese Option, um code-aktivierte Käufe vollständig zu blockieren."
+
+#: admin/hwcf-admin.php
+msgid "Completely prevents cart bots from placing orders via direct POST requests, as well as customers. Best used temporarily as a nuclear option."
+msgstr "Verhindert vollständig, dass Warenkorb-Bots und Kunden Bestellungen über direkte POST-Anfragen aufgeben. Am besten vorübergehend als Notfalloption verwenden."
+
+#: admin/hwcf-admin.php
+msgid "Delete Data on Uninstall"
+msgstr "Daten bei Deinstallation löschen"
+
+#: admin/hwcf-admin.php
+msgid "WARNING:"
+msgstr "WARNUNG:"
+
+#: admin/hwcf-admin.php
+msgid "All plugin settings will be permanently deleted if this plugin is uninstalled."
+msgstr "Alle Plugin-Einstellungen werden dauerhaft gelöscht, wenn dieses Plugin deinstalliert wird."
+
+#: admin/hwcf-admin.php
+msgid "Support"
+msgstr "Support"
+
+#: admin/hwcf-admin.php
+msgid "Leave Review"
+msgstr "Bewertung hinterlassen"
+
+#: admin/hwcf-admin.php
+msgid "This plugin is free, but your donation aids orphans:"
+msgstr "Dieses Plugin ist kostenlos, aber Ihre Spende hilft Waisenkindern:"
+
+#: admin/hwcf-admin.php
+msgid "I Want to Help"
+msgstr "Ich möchte helfen"
+
+#: admin/hwcf-admin.php
+msgid "Deleted!"
+msgstr "Gelöscht!"
+
+#: admin/hwcf-admin.php
+msgid "Settings deleted."
+msgstr "Einstellungen gelöscht."
+
+#: admin/hwcf-table.php
+msgid "Function Rule"
+msgstr "Funktionsregel"
+
+#: admin/hwcf-admin.php
+msgid "Show Login Button"
+msgstr "Login-Button anzeigen"
+
+#: admin/hwcf-admin.php
+msgid "Display a login button in place of the Add to Cart button."
+msgstr "Zeigt einen Login-Button anstelle des Warenkorb-Buttons an."
+
+#: admin/hwcf-admin.php
+msgid "Works best with Guests Only enabled. Shows a login button that redirects users to log in, then returns them to the product page."
+msgstr "Funktioniert am besten mit aktiviertem Nur Gäste. Zeigt einen Login-Button, der Benutzer zur Anmeldung weiterleitet und sie dann zur Produktseite zurückführt."
+
+#: admin/hwcf-admin.php
+msgid "Login Button Text"
+msgstr "Login-Button-Text"
+
+#: admin/hwcf-admin.php
+msgid "Login to See Prices"
+msgstr "Anmelden für Preise"
+
+#: admin/hwcf-admin.php
+msgid "Custom text for the login button. Leave empty for default."
+msgstr "Benutzerdefinierter Text für den Login-Button. Leer lassen für Standard."
+
+#: admin/hwcf-admin.php
+msgid "Login Return URL"
+msgstr "Rückleitungs-URL nach Login"
+
+#: admin/hwcf-admin.php
+msgid "Current Product Page"
+msgstr "Aktuelle Produktseite"
+
+#: admin/hwcf-admin.php
+msgid "Shop Page"
+msgstr "Shop-Seite"
+
+#: admin/hwcf-admin.php
+msgid "Home Page"
+msgstr "Startseite"
+
+#: admin/hwcf-admin.php
+msgid "My Account Page"
+msgstr "Mein Konto"
+
+#: admin/hwcf-admin.php
+msgid "Choose where customers are redirected after logging in."
+msgstr "Wählen Sie, wohin Kunden nach der Anmeldung weitergeleitet werden."
+
+#: hide-cart-functions.php
+msgid "Invalid checkout session. Please add items to your cart and try again."
+msgstr "Ungültige Checkout-Sitzung. Bitte fügen Sie Artikel zu Ihrem Warenkorb hinzu und versuchen Sie es erneut."

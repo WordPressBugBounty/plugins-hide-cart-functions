@@ -1,6 +1,16 @@
 <?php
-if (!class_exists('WP_List_Table')) {
-    require_once(ABSPATH . 'wp-admin/includes/class-wp-list-table.php');
+/**
+ * Hide Cart Functions List Table
+ *
+ * @package Hide_Cart_Functions
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+if ( ! class_exists( 'WP_List_Table' ) ) {
+    require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
 }
 
 class hwcf_List extends WP_List_Table
@@ -106,10 +116,6 @@ class hwcf_List extends WP_List_Table
      */
     public function search_box($text, $input_id)
     {
-        if (empty($_REQUEST['s']) && !$this->has_items()) {
-            return;
-        }
-
         $input_id = $input_id . '-search-input';
 
         if (!empty($_REQUEST['orderby'])) {
@@ -165,17 +171,17 @@ class hwcf_List extends WP_List_Table
         /**
          * This checks for sorting input and sorts the data in our array accordingly.
          */
-        function usort_reorder($a, $b)
-        {
-            $orderby = (!empty($_REQUEST['orderby'])) ? sanitize_text_field($_REQUEST['orderby']) : 'ID'; //If no sort, default to role
-            $order   = (!empty($_REQUEST['order'])) ? sanitize_text_field($_REQUEST['order']) : 'asc'; //If no order, default to asc
-            $result  = strnatcasecmp($a[$orderby],
-                $b[$orderby]); //Determine sort order, case insensitive, natural order
+        function hwcf_usort_reorder( $a, $b ) {
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Sorting doesn't modify data
+            $orderby = ( ! empty( $_REQUEST['orderby'] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST['orderby'] ) ) : 'ID';
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Sorting doesn't modify data
+            $order   = ( ! empty( $_REQUEST['order'] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST['order'] ) ) : 'asc';
+            $result  = strnatcasecmp( $a[ $orderby ], $b[ $orderby ] );
 
-            return ($order === 'asc') ? $result : -$result; //Send final sort direction to usort
+            return ( 'asc' === $order ) ? $result : -$result;
         }
 
-        usort($data, 'usort_reorder');
+        usort( $data, 'hwcf_usort_reorder' );
 
         /**
          * Pagination.
@@ -281,7 +287,7 @@ class hwcf_List extends WP_List_Table
             ),
         ];
 
-        return $column_name === $primary ? $this->row_actions($actions, false) : '';
+        return $column_name === $primary ? $this->row_actions($actions, true) : '';
     }
 
     /**
@@ -293,6 +299,7 @@ class hwcf_List extends WP_List_Table
      */
     protected function column_title($item)
     {
+        $title = !empty($item['hwcf_title']) ? $item['hwcf_title'] : __('Function Rule', 'hide-cart-functions');
         return sprintf(
             '<a href="%1$s"><strong><span class="row-title">%2$s</span></strong></a>', 
             add_query_arg(
@@ -304,7 +311,7 @@ class hwcf_List extends WP_List_Table
                 ],
                 admin_url('admin.php')
             ), 
-            esc_html($item['hwcf_title']),
+            esc_html($title),
         );
     }
 
@@ -446,43 +453,7 @@ class hwcf_List extends WP_List_Table
             <div class="alignleft actions autoterms-log-table-filter">
 
             <span class="spinner hwcf-spinner"></span>
-            <input 
-                    type="checkbox"
-                    name="hwcf_delete_on_deactivation" 
-                    id="hwcf_delete_on_deactivation" 
-                    class="hwcf_delete_on_deactivation"
-                    value="1"
-                    onclick="update_hwcf_delete_on_deactivation()"
-                    <?php echo ( (int)get_option('hwcf_delete_on_deactivation', 0) === 1) ? 'checked="checked"' : ''; ?>
-                     />
-            <label for="hwcf_delete_on_deactivation">
-                    <?php esc_html_e( 'Delete all database entries if the plugin is deactivated?', 'hide-cart-functions' ); ?>
-                </label>
             </div>
-
-            <script>
-                function update_hwcf_delete_on_deactivation(){
-                    var checkbox = jQuery(this);
-                    jQuery(".hwcf-spinner").addClass("is-active");
-                    var settings_action = '';
-                    if (!jQuery('#hwcf_delete_on_deactivation').prop("checked")) {
-                        settings_action = '0';
-                    } else {
-                        settings_action = '1';
-                    }
-
-                    jQuery.ajax({
-                        url : "<?php echo esc_url(admin_url('admin-ajax.php')); ?>",
-                        data : { action : "hwcf_delete_on_deactivation", settings_action : settings_action },
-                        type : "POST",
-                        dataType : "json",
-                        success : function( response ) {
-                            jQuery(".hwcf-spinner").removeClass("is-active");
-                        }
-                    })
-                }
-
-            </script>
         <?php
 		}
 	}

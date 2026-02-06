@@ -1,404 +1,369 @@
+# Finnish translation for Hide Cart Functions plugin
+# Copyright (C) 2022-2025 Artios Media
+# This file is distributed under the GNU General Public License v3.0.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Hide Cart Functions\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: Hide Cart Functions 1.2.11\n"
+"Report-Msgid-Bugs-To: contact@artiosmedia.com\n"
 "POT-Creation-Date: 2023-10-10 01:05-0400\n"
-"PO-Revision-Date: 2023-10-10 01:26-0400\n"
+"PO-Revision-Date: 2025-12-30 20:38-0500\n"
 "Last-Translator: \n"
-"Language-Team: \n"
-"Language: pt\n"
+"Language-Team: Finnish\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4\n"
-"X-Loco-Version: 2.5.7; wp-5.9.2\n"
-"X-Domain: hide-cart-functions\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_attr;esc_attr__;esc_attr_e\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: admin/hwcf-admin.php:154
 msgid "Search Product"
-msgstr "Pesquisar Produto"
+msgstr "Hae tuotetta"
 
 #: admin/hwcf-admin.php:155
 msgid "Select category"
-msgstr "Selecione a categoria"
+msgstr "Valitse kategoria"
 
 #: admin/hwcf-admin.php:156
 msgid "No results found."
-msgstr "Nenhum resultado encontrado."
+msgstr "Ei tuloksia."
 
 #: admin/hwcf-admin.php:177 admin/hwcf-admin.php:178
 msgid "Hide Functions"
-msgstr "Ocultar funções"
+msgstr "Piilota toiminnot"
 
 #: admin/hwcf-admin.php:200
 msgid "Settings"
-msgstr "Opções"
+msgstr "Asetukset"
 
 #: admin/hwcf-admin.php:214
 msgid "Donation for Homeless"
-msgstr "Doação para moradores de rua"
+msgstr "Lahjoitus kodittomille"
 
 #: admin/hwcf-admin.php:238
 #, php-format
 msgid "More information about %s"
-msgstr "Mais informações sobre %s"
+msgstr "Lisätietoja: %s"
 
 #: admin/hwcf-admin.php:238
 msgid "View Details"
-msgstr "Ver Detalhes"
+msgstr "Näytä tiedot"
 
 #: admin/hwcf-admin.php:249
 msgid "Number of items per page"
-msgstr "Número de itens por página"
+msgstr "Kohteiden määrä sivulla"
 
 #: admin/hwcf-admin.php:280 admin/hwcf-table.php:14 admin/hwcf-table.php:15
 msgid "Hide Cart Functions"
-msgstr "Ocultar funções do carrinho"
+msgstr "Piilota ostoskorin toiminnot"
 
 #: admin/hwcf-admin.php:283
 msgid "Add New"
-msgstr "Adicionar novo"
+msgstr "Lisää uusi"
 
 #: admin/hwcf-admin.php:291
 #, php-format
 msgid "Search results for %s"
-msgstr "Resultados da pesquisa para %s"
+msgstr "Hakutulokset: %s"
 
 #: admin/hwcf-admin.php:304
 msgid "Search Result"
-msgstr "Resultado da pesquisa"
+msgstr "Hakutulos"
 
 #: admin/hwcf-admin.php:363
 msgid "Manage Settings"
-msgstr "Gerenciar configurações"
+msgstr "Hallitse asetuksia"
 
 #: admin/hwcf-admin.php:363
 msgid "Saved Settings"
-msgstr "Guardados"
+msgstr "Tallennetut"
 
 #: admin/hwcf-admin.php:378
 msgid "Edit Settings"
-msgstr "Editar Configurações"
+msgstr "Muokkaa asetuksia"
 
 #: admin/hwcf-admin.php:380
 msgid "Existing Rule"
-msgstr "Regra Existente"
+msgstr "Olemassa oleva sääntö"
 
 #: admin/hwcf-admin.php:384
 msgid "Add New Settings"
-msgstr "Adicionar novas configurações"
+msgstr "Lisää uudet asetukset"
 
 #: admin/hwcf-admin.php:396
 msgid "Disable Settings"
-msgstr "Desativar configurações"
+msgstr "Poista asetukset käytöstä"
 
 #: admin/hwcf-admin.php:400
-msgid ""
-"Check this option to disable this rule. Leave unchecked to apply the "
-"selected settings."
-msgstr ""
-"Marque esta opção para desabilitar esta regra. Deixe desmarcado para aplicar "
-"as configurações selecionadas."
+msgid "Check this option to disable this rule. Leave unchecked to apply the selected settings."
+msgstr "Valitse poistaaksesi säännön käytöstä. Jätä tyhjäksi ottaaksesi käyttöön."
 
 #: admin/hwcf-admin.php:408
 msgid "Rule enabled"
-msgstr "Regra ativada"
+msgstr "Sääntö käytössä"
 
 #: admin/hwcf-admin.php:411
 msgid "Guests Only"
-msgstr "Apenas convidados"
+msgstr "Vain vieraat"
 
 #: admin/hwcf-admin.php:415
 msgid "Logged in Users --> Leave both unchecked for ALL users."
-msgstr "Usuários logados -> Deixe ambos desmarcados para TODOS os usuários."
+msgstr "Kirjautuneet käyttäjät --> Jätä molemmat tyhjäksi KAIKILLE."
 
 #: admin/hwcf-admin.php:427
 msgid "Rule Title"
-msgstr "Título da regra"
+msgstr "Säännön otsikko"
 
 #: admin/hwcf-admin.php:433
 msgid "Create short title for rule for display in the settings table."
-msgstr ""
-"Crie um título curto para a regra a ser exibida na tabela de configurações."
+msgstr "Luo lyhyt otsikko näytettäväksi asetustaulukossa."
 
 #: admin/hwcf-admin.php:440
 msgid "Hide Quantity"
-msgstr "Ocultar quantidade"
+msgstr "Piilota määrä"
 
 #: admin/hwcf-admin.php:444
-msgid ""
-"Check this option to hide the default cart \"Quantity\" product function."
-msgstr ""
-"Marque esta opção para ocultar a função de produto \"Quantidade\" do "
-"carrinho padrão."
+msgid "Check this option to hide the default cart \"Quantity\" product function."
+msgstr "Valitse piilottaaksesi oletusarvoisen \"Määrä\"-toiminnon."
 
 #: admin/hwcf-admin.php:449
 msgid "Hide Add to Cart"
-msgstr "Ocultar Adicionar ao carrinho"
+msgstr "Piilota Lisää koriin"
 
 #: admin/hwcf-admin.php:453
 msgid "Check this option to hide the default cart \"Add to Cart\" button."
-msgstr ""
-"Marque esta opção para ocultar o botão padrão \"Adicionar ao carrinho\" do "
-"carrinho."
+msgstr "Valitse piilottaaksesi oletusarvoisen \"Lisää koriin\" -painikkeen."
 
 #: admin/hwcf-admin.php:458
 msgid "Hide Price"
-msgstr "Ocultar preço"
+msgstr "Piilota hinta"
 
 #: admin/hwcf-admin.php:462
 msgid "Check this option to hide the default cart \"Price\" displayed."
-msgstr "Marque esta opção para ocultar o carrinho padrão \"Preço\" exibido."
+msgstr "Valitse piilottaaksesi oletusarvoisen \"Hinta\"-näytön."
 
 #: admin/hwcf-admin.php:468
 msgid "Override Price Tag"
-msgstr "Substituir etiqueta de preço"
+msgstr "Korvaa hintatunniste"
 
 #: admin/hwcf-admin.php:476
 #, php-format
-msgid ""
-"This text will override the price tag. Use the %s to keep showing price in "
-"the tag with other text."
-msgstr ""
-"Este texto substituirá a etiqueta de preço. Use %s para continuar mostrando "
-"o preço na tag com outro texto."
+msgid "This text will override the price tag. Use the %s to keep showing price in the tag with other text."
+msgstr "Tämä teksti korvaa hintatunnisteen. Käytä %s näyttääksesi hinnan muun tekstin kanssa."
 
 #: admin/hwcf-admin.php:486
 msgid "Hide Options"
-msgstr "Ocultar opções"
+msgstr "Piilota vaihtoehdot"
 
 #: admin/hwcf-admin.php:490
-msgid ""
-"Check this option to hide the default cart \"Options\" dropdown selector."
-msgstr ""
-"Marque esta opção para ocultar o seletor suspenso \"Opções\" do carrinho "
-"padrão."
+msgid "Check this option to hide the default cart \"Options\" dropdown selector."
+msgstr "Valitse piilottaaksesi oletusarvoisen \"Vaihtoehdot\"-pudotusvalikon."
 
 #: admin/hwcf-admin.php:497
 msgid "Hide Custom Element"
-msgstr "Ocultar elemento personalizado"
+msgstr "Piilota mukautettu elementti"
 
 #: admin/hwcf-admin.php:503
 msgid "Enter specific IDs or classes to hide a custom element."
-msgstr ""
-"Insira IDs ou classes específicas para ocultar um elemento personalizado."
+msgstr "Syötä ID:t tai luokat piilottaaksesi elementin."
 
 #: admin/hwcf-admin.php:506
-msgid ""
-"Separate multiple values by comma (examples: .custom-item-one, .custom-item-"
-"two, #new-item-id)."
-msgstr ""
-"Separe vários valores por vírgula (exemplos: .custom-item-one, .custom-item-"
-"two, #new-item-id)."
+msgid "Separate multiple values by comma (examples: .custom-item-one, .custom-item-two, #new-item-id)."
+msgstr "Erota arvot pilkuilla (esim: .kohde-yksi, .kohde-kaksi, #uusi-id)."
 
 #: admin/hwcf-admin.php:513
 msgid "Custom Message"
-msgstr "Mensagem personalizada"
+msgstr "Mukautettu viesti"
 
 #: admin/hwcf-admin.php:526
-msgid ""
-"Enter a custom message to be added above or below the \"Short product "
-"description\""
-msgstr ""
-"Insira uma mensagem personalizada a ser adicionada acima ou abaixo da "
-"\"Breve descrição do produto\""
+msgid "Enter a custom message to be added above or below the \"Short product description\""
+msgstr "Syötä viesti lisättäväksi \"Lyhyen tuotekuvauksen\" ylä- tai alapuolelle"
 
 #: admin/hwcf-admin.php:533
 msgid "Custom Message Position"
-msgstr "Posição da mensagem personalizada"
+msgstr "Viestin sijainti"
 
 #: admin/hwcf-admin.php:539
 msgid "Above Short product description"
-msgstr "Acima Breve descrição do produto"
+msgstr "Lyhyen tuotekuvauksen yläpuolella"
 
 #: admin/hwcf-admin.php:540
 msgid "Below Short product description."
-msgstr "Abaixo breve descrição do produto."
+msgstr "Lyhyen tuotekuvauksen alapuolella."
 
 #: admin/hwcf-admin.php:552
 msgid "Select position where Custom Message should be inserted."
-msgstr "Selecione a posição onde a Mensagem Personalizada deve ser inserida."
+msgstr "Valitse mukautetun viestin sijainti."
 
 #: admin/hwcf-admin.php:562 admin/hwcf-table.php:72
 msgid "Selected Category"
-msgstr "Categoria selecionada"
+msgstr "Valittu kategoria"
 
 #: admin/hwcf-admin.php:583
-msgid ""
-"Some browsers, hold the \"Ctrl\" key while clicking to select multiple or to "
-"deselect entirely."
-msgstr ""
-"Alguns navegadores mantêm pressionada a tecla “Ctrl” enquanto clicam para "
-"selecionar vários ou desmarcar totalmente."
+msgid "Some browsers, hold the \"Ctrl\" key while clicking to select multiple or to deselect entirely."
+msgstr "Joissakin selaimissa pidä \"Ctrl\" pohjassa valitaksesi useita tai poistaaksesi valinnan."
 
 #: admin/hwcf-admin.php:591 admin/hwcf-table.php:73
 msgid "Product IDs"
-msgstr "IDs do produto"
+msgstr "Tuote-ID:t"
 
 #: admin/hwcf-admin.php:595
-msgid ""
-"Separate multiple values by comma (3443, 5567, 3456) or leave empty to apply "
-"this rule to all products."
-msgstr ""
-"Separe vários valores por vírgula (3443, 5567, 3456) ou deixe em branco para "
-"aplicar esta regra a todos os produtos."
+msgid "Separate multiple values by comma (3443, 5567, 3456) or leave empty to apply this rule to all products."
+msgstr "Erota arvot pilkuilla (3443, 5567, 3456) tai jätä tyhjäksi kaikille tuotteille."
 
 #: admin/hwcf-admin.php:601
 msgid "Search Products"
-msgstr "Procurar produtos"
+msgstr "Hae tuotteita"
 
 #: admin/hwcf-admin.php:606
-msgid ""
-"Search and select products with 3 letter minimum. Works in combination with "
-"the Product ID field."
-msgstr ""
-"Pesquise e selecione produtos com no mínimo 3 letras. Funciona em combinação "
-"com o campo ID do produto."
+msgid "Search and select products with 3 letter minimum. Works in combination with the Product ID field."
+msgstr "Hae ja valitse tuotteita (vähintään 3 kirjainta). Toimii Tuote-ID-kentän kanssa."
 
 #: admin/hwcf-admin.php:640
 msgid "Save Settings"
-msgstr "Salvar configurações"
+msgstr "Tallenna asetukset"
 
 #: admin/hwcf-admin.php:643
 msgid "Add Settings"
-msgstr "Adicionar configurações"
+msgstr "Lisää asetukset"
 
 #: admin/hwcf-table.php:66
 msgid "Title"
-msgstr "Título"
+msgstr "Otsikko"
 
 #: admin/hwcf-table.php:67
 msgid "Status"
-msgstr "Status"
+msgstr "Tila"
 
 #: admin/hwcf-table.php:68
 msgid "Quantity"
-msgstr "Quantidade"
+msgstr "Määrä"
 
 #: admin/hwcf-table.php:69
 msgid "Add to Cart"
-msgstr "Adicionar ao Carrinho"
+msgstr "Lisää koriin"
 
 #: admin/hwcf-table.php:70
 msgid "Price"
-msgstr "Preço"
+msgstr "Hinta"
 
 #: admin/hwcf-table.php:71
 msgid "Options"
-msgstr "Opções"
+msgstr "Vaihtoehdot"
 
 #: admin/hwcf-table.php:96
 msgid "No Item available."
-msgstr "Nenhum item disponível."
+msgstr "Ei kohteita saatavilla."
 
 #: admin/hwcf-table.php:269
 msgid "Edit"
-msgstr "Editar"
+msgstr "Muokkaa"
 
 #: admin/hwcf-table.php:280
 msgid "Delete"
-msgstr "Excluir"
+msgstr "Poista"
 
 #: admin/hwcf-table.php:321 admin/hwcf-table.php:341 admin/hwcf-table.php:359
 #: admin/hwcf-table.php:377 admin/hwcf-table.php:395
 msgid "Disabled"
-msgstr "Desabilitado"
+msgstr "Pois käytöstä"
 
 #: admin/hwcf-table.php:323 admin/hwcf-table.php:339 admin/hwcf-table.php:357
 #: admin/hwcf-table.php:375 admin/hwcf-table.php:393
 msgid "Enabled"
-msgstr "Habilitado"
+msgstr "Käytössä"
 
 #: admin/hwcf-table.php:459
 msgid "Delete all database entries if the plugin is deactivated?"
-msgstr ""
-"Excluir todas as entradas do banco de dados se o plugin estiver desativado?"
+msgstr "Poista kaikki tietokantatiedot kun lisäosa poistetaan käytöstä?"
 
 #: inc/utilities-functions.php:210
 msgid "Settings Updated Successfully."
-msgstr "Configurações atualizadas com sucesso."
+msgstr "Asetukset päivitetty onnistuneesti."
 
 #: inc/utilities-functions.php:219
 msgid "Settings Successfully Deleted."
-msgstr "Configurações excluídas com sucesso."
+msgstr "Asetukset poistettu onnistuneesti."
 
 #: admin/hwcf-admin.php:508
 msgid "Success!"
-msgstr "Sucesso!"
+msgstr "Onnistui!"
 
 #: admin/hwcf-admin.php:509
 msgid "Settings saved."
-msgstr "Configurações salvas."
+msgstr "Asetukset tallennettu."
 
 #: admin/hwcf-admin.php
 msgid "Store-Wide Settings"
-msgstr "Configurações da loja"
+msgstr "Kaupan laajuiset asetukset"
 
 #: admin/hwcf-admin.php
 msgid "Cripple Bots"
-msgstr "Bloquear bots"
+msgstr "Estä botit"
 
 #: admin/hwcf-admin.php
 msgid "Require a valid cart session before checkout."
-msgstr "Requer uma sessão de carrinho válida antes do checkout."
+msgstr "Vaadi voimassa oleva ostoskori-istunto ennen kassalle siirtymistä."
 
 #: admin/hwcf-admin.php
 msgid "Blocks direct POST attacks by card test bots. Real customers continue to add products to their cart through normal browsing. Orders without a valid session are rejected before reaching the payment gateway."
-msgstr "Bloqueia ataques POST diretos de bots de teste de cartões. Os clientes reais continuam a adicionar produtos ao carrinho através de navegação normal. Encomendas sem sessão válida são rejeitadas antes de chegar ao gateway de pagamento."
+msgstr "Estää korttitestausbottien suorat POST-hyökkäykset. Oikeat asiakkaat jatkavat tuotteiden lisäämistä ostoskoriinsa normaalin selauksen kautta. Tilaukset ilman voimassa olevaa istuntoa hylätään ennen maksuportaaliin pääsyä."
 
 #: admin/hwcf-admin.php
 msgid "Disable Purchases"
-msgstr "Desativar compras"
+msgstr "Poista ostokset käytöstä"
 
 #: admin/hwcf-admin.php
 msgid "Check this option to completely block code-activated purchases."
-msgstr "Marque esta opção para bloquear completamente as compras ativadas por código."
+msgstr "Valitse tämä vaihtoehto estääksesi koodiaktivoidut ostokset kokonaan."
 
 #: admin/hwcf-admin.php
 msgid "Completely prevents cart bots from placing orders via direct POST requests, as well as customers. Best used temporarily as a nuclear option."
-msgstr "Impede completamente que bots de carrinho e clientes façam encomendas através de pedidos POST diretos. Melhor usar temporariamente como opção nuclear."
+msgstr "Estää kokonaan ostoskoribotteja ja asiakkaita tekemästä tilauksia suorilla POST-pyynnöillä. Parasta käyttää väliaikaisesti ydinvaihtoehtona."
 
 #: admin/hwcf-admin.php
 msgid "Delete Data on Uninstall"
-msgstr "Eliminar dados ao desinstalar"
+msgstr "Poista tiedot poistettaessa"
 
 #: admin/hwcf-admin.php
 msgid "WARNING:"
-msgstr "AVISO:"
+msgstr "VAROITUS:"
 
 #: admin/hwcf-admin.php
 msgid "All plugin settings will be permanently deleted if this plugin is uninstalled."
-msgstr "Todas as configurações do plugin serão permanentemente eliminadas se este plugin for desinstalado."
+msgstr "Kaikki lisäosan asetukset poistetaan pysyvästi, jos tämä lisäosa poistetaan."
 
 #: admin/hwcf-admin.php
 msgid "Support"
-msgstr "Suporte"
+msgstr "Tuki"
 
 #: admin/hwcf-admin.php
 msgid "Leave Review"
-msgstr "Deixar avaliação"
+msgstr "Jätä arvostelu"
 
 #: admin/hwcf-admin.php
 msgid "This plugin is free, but your donation aids orphans:"
-msgstr "Este plugin é gratuito, mas a sua doação ajuda órfãos:"
+msgstr "Tämä lisäosa on ilmainen, mutta lahjoituksesi auttaa orpoja:"
 
 #: admin/hwcf-admin.php
 msgid "I Want to Help"
-msgstr "Quero ajudar"
+msgstr "Haluan auttaa"
 
 #: admin/hwcf-admin.php
 msgid "Deleted!"
-msgstr "Eliminado!"
+msgstr "Poistettu!"
 
 #: admin/hwcf-admin.php
 msgid "Settings deleted."
-msgstr "Configurações eliminadas."
+msgstr "Asetukset poistettu."
 
 #: admin/hwcf-table.php
 msgid "Function Rule"
-msgstr "Regra de função"
+msgstr "Toimintosääntö"
 
 #: admin/hwcf-admin.php
 msgid "Show Login Button"

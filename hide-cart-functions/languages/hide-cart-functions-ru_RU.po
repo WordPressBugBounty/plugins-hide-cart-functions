@@ -75,8 +75,8 @@ msgid "Manage Settings"
 msgstr "Управлять настройками"
 
 #: admin/hwcf-admin.php:363
-msgid "All Settings"
-msgstr "Все настройки"
+msgid "Saved Settings"
+msgstr "Сохранено"
 
 #: admin/hwcf-admin.php:378
 msgid "Edit Settings"
@@ -339,3 +339,131 @@ msgstr "Настройки успешно удалены."
 
 #~ msgid "http://www.artiosmedia.com"
 #~ msgstr "http://www.artiosmedia.com"
+
+#: admin/hwcf-admin.php:508
+msgid "Success!"
+msgstr "Успех!"
+
+#: admin/hwcf-admin.php:509
+msgid "Settings saved."
+msgstr "Настройки сохранены."
+
+#: admin/hwcf-admin.php
+msgid "Store-Wide Settings"
+msgstr "Общие настройки магазина"
+
+#: admin/hwcf-admin.php
+msgid "Cripple Bots"
+msgstr "Блокировать ботов"
+
+#: admin/hwcf-admin.php
+msgid "Require a valid cart session before checkout."
+msgstr "Требовать действительную сессию корзины перед оформлением заказа."
+
+#: admin/hwcf-admin.php
+msgid "Blocks direct POST attacks by card test bots. Real customers continue to add products to their cart through normal browsing. Orders without a valid session are rejected before reaching the payment gateway."
+msgstr "Блокирует прямые POST-атаки ботов тестирования карт. Реальные клиенты продолжают добавлять товары в корзину при обычном просмотре. Заказы без действительной сессии отклоняются до достижения платежного шлюза."
+
+#: admin/hwcf-admin.php
+msgid "Disable Purchases"
+msgstr "Отключить покупки"
+
+#: admin/hwcf-admin.php
+msgid "Check this option to completely block code-activated purchases."
+msgstr "Отметьте эту опцию, чтобы полностью заблокировать покупки, активированные кодом."
+
+#: admin/hwcf-admin.php
+msgid "Completely prevents cart bots from placing orders via direct POST requests, as well as customers. Best used temporarily as a nuclear option."
+msgstr "Полностью предотвращает размещение заказов ботами корзины и клиентами через прямые POST-запросы. Лучше использовать временно как ядерный вариант."
+
+#: admin/hwcf-admin.php
+msgid "Delete Data on Uninstall"
+msgstr "Удалить данные при удалении"
+
+#: admin/hwcf-admin.php
+msgid "WARNING:"
+msgstr "ПРЕДУПРЕЖДЕНИЕ:"
+
+#: admin/hwcf-admin.php
+msgid "All plugin settings will be permanently deleted if this plugin is uninstalled."
+msgstr "Все настройки плагина будут безвозвратно удалены при удалении этого плагина."
+
+#: admin/hwcf-admin.php
+msgid "Support"
+msgstr "Поддержка"
+
+#: admin/hwcf-admin.php
+msgid "Leave Review"
+msgstr "Оставить отзыв"
+
+#: admin/hwcf-admin.php
+msgid "This plugin is free, but your donation aids orphans:"
+msgstr "Этот плагин бесплатный, но ваше пожертвование помогает сиротам:"
+
+#: admin/hwcf-admin.php
+msgid "I Want to Help"
+msgstr "Хочу помочь"
+
+#: admin/hwcf-admin.php
+msgid "Deleted!"
+msgstr "Удалено!"
+
+#: admin/hwcf-admin.php
+msgid "Settings deleted."
+msgstr "Настройки удалены."
+
+#: admin/hwcf-table.php
+msgid "Function Rule"
+msgstr "Правило функции"
+
+#: admin/hwcf-admin.php
+msgid "Show Login Button"
+msgstr ""
+
+#: admin/hwcf-admin.php
+msgid "Display a login button in place of the Add to Cart button."
+msgstr ""
+
+#: admin/hwcf-admin.php
+msgid "Works best with Guests Only enabled. Shows a login button that redirects users to log in, then returns them to the product page."
+msgstr ""
+
+#: admin/hwcf-admin.php
+msgid "Login Button Text"
+msgstr ""
+
+#: admin/hwcf-admin.php
+msgid "Login to See Prices"
+msgstr ""
+
+#: admin/hwcf-admin.php
+msgid "Custom text for the login button. Leave empty for default."
+msgstr ""
+
+#: admin/hwcf-admin.php
+msgid "Login Return URL"
+msgstr ""
+
+#: admin/hwcf-admin.php
+msgid "Current Product Page"
+msgstr ""
+
+#: admin/hwcf-admin.php
+msgid "Shop Page"
+msgstr ""
+
+#: admin/hwcf-admin.php
+msgid "Home Page"
+msgstr ""
+
+#: admin/hwcf-admin.php
+msgid "My Account Page"
+msgstr ""
+
+#: admin/hwcf-admin.php
+msgid "Choose where customers are redirected after logging in."
+msgstr ""
+
+#: hide-cart-functions.php
+msgid "Invalid checkout session. Please add items to your cart and try again."
+msgstr ""
